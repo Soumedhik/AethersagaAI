@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { ArrowRight, Menu, X, Mail, MapPin, Clock, Users, Phone, Globe } from "lucide-react"
+import { ArrowRight, Menu, X, Mail, MapPin, Users, Phone, Globe } from "lucide-react"
 import Link from "next/link"
 import { AnimatedLogo } from "@/components/animated-logo"
 
@@ -94,96 +94,6 @@ export default function JoinPage() {
             <p className="text-xl text-[#b8b8b8] max-w-3xl mx-auto leading-relaxed">
               Be part of cutting-edge research that shapes the future of artificial intelligence and machine learning.
             </p>
-          </div>
-
-          {/* Open Positions */}
-          <div className="mb-20">
-            <h2 className="text-4xl font-light mb-12 text-center tracking-[-1px]">Open Positions</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {[
-                {
-                  title: "PhD Student - Deep Learning",
-                  type: "Full-time",
-                  location: "Kolkata, India",
-                  deadline: "March 15, 2025",
-                  description:
-                    "Research focus on neural architecture search and efficient deep learning systems. Strong background in mathematics and programming required.",
-                  requirements: [
-                    "Master's in CS/EE/Math",
-                    "Strong Python/PyTorch skills",
-                    "Research experience preferred",
-                  ],
-                },
-                {
-                  title: "Postdoctoral Researcher - Federated Learning",
-                  type: "2-year position",
-                  location: "Kolkata, India",
-                  deadline: "February 28, 2025",
-                  description:
-                    "Lead research on privacy-preserving machine learning and distributed systems. Opportunity to mentor PhD students.",
-                  requirements: ["PhD in CS/ML", "Publications in top venues", "Experience with distributed systems"],
-                },
-                {
-                  title: "Research Scientist - Computer Vision",
-                  type: "Full-time",
-                  location: "Kolkata, India",
-                  deadline: "April 1, 2025",
-                  description:
-                    "Develop novel computer vision algorithms for medical imaging applications. Collaborate with clinical partners.",
-                  requirements: ["PhD in CS/CV", "Medical imaging experience", "Strong publication record"],
-                },
-                {
-                  title: "Visiting Researcher",
-                  type: "6-12 months",
-                  location: "Kolkata, India",
-                  deadline: "Rolling basis",
-                  description:
-                    "Short-term research collaboration opportunities for established researchers. Flexible duration and research focus.",
-                  requirements: ["PhD + research experience", "Active research program", "Collaborative mindset"],
-                },
-              ].map((position, index) => (
-                <div
-                  key={index}
-                  className="bg-[rgba(255,255,255,0.05)] rounded-lg p-6 hover:bg-[rgba(255,255,255,0.08)] transition-all duration-300 group"
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 className="text-xl font-semibold group-hover:text-[#0084ff] transition-colors mb-2">
-                        {position.title}
-                      </h3>
-                      <div className="flex items-center gap-4 text-sm text-[#888] mb-3">
-                        <div className="flex items-center gap-1">
-                          <Clock className="w-4 h-4" />
-                          {position.type}
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <MapPin className="w-4 h-4" />
-                          {position.location}
-                        </div>
-                      </div>
-                    </div>
-                    <span className="px-3 py-1 bg-[#0084ff]/20 text-[#0084ff] rounded-full text-xs">
-                      Deadline: {position.deadline}
-                    </span>
-                  </div>
-                  <p className="text-[#b8b8b8] text-sm leading-relaxed mb-4">{position.description}</p>
-                  <div className="mb-4">
-                    <h4 className="text-white font-medium mb-2 text-sm">Requirements:</h4>
-                    <ul className="space-y-1">
-                      {position.requirements.map((req, idx) => (
-                        <li key={idx} className="text-xs text-[#888] flex items-center gap-2">
-                          <div className="w-1 h-1 bg-[#0084ff] rounded-full"></div>
-                          {req}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <button className="w-full bg-[#0084ff] text-white py-2 rounded-md text-sm font-medium hover:bg-[#0066cc] transition-colors">
-                    Apply Now
-                  </button>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Application Process */}

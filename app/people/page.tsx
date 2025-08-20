@@ -90,40 +90,69 @@ export default function PeoplePage() {
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
-                  name: "Dr. Swarup Kumar Ghosh",
-                  role: "Principal Investigator",
-                  focus: "Deep Learning, Computer Vision",
-                  bio: "Leading researcher in neural architecture search and efficient deep learning systems. Published 50+ papers in top-tier venues.",
-                  education: "PhD Computer Science, IIT Kharagpur",
-                  interests: ["Neural Architecture Search", "Model Compression", "Computer Vision"],
+                  name: "Dr. Swarup Kr Ghosh",
+                  role: "Assistant Professor",
+                  focus: "AI & ML, Computational Biology, Medical Imaging",
+                  bio: "Dr. Swarup Kr Ghosh is presently working as an Associate Professor of the Department of Computer Science & Engineering, Sister Nivedita University, Kolkata. He has published more than 40 research articles in various reputed journals and holds 4 Indian patents.",
+                  education: "Ph.D. in CSE – MAKAUT, WB | M.Tech (IT) – University of Calcutta",
+                  interests: ["Artificial Intelligence", "Machine Learning", "Medical Imaging", "Data Science"],
+                  email: "swarup.kg@snuniv.ac.in",
+                  linkedin: "https://www.linkedin.com/in/dr-swarup-kr-ghosh-b8782557/",
+                  scholar: "https://scholar.google.co.in/citations?user=1NU_3oEAAAAJ&hl=en",
+                  experience: "12 Years Teaching, 13 Years Research",
+                  publications: "24 Journal Papers, 6 Conference Presentations, 11 Book Chapters, 4 Patents",
                 },
                 {
                   name: "Dr. Sayani Mondal",
-                  role: "Associate Researcher",
-                  focus: "Natural Language Processing, Federated Learning",
-                  bio: "Expert in privacy-preserving machine learning and distributed systems. Pioneer in federated learning research.",
-                  education: "PhD Computer Science, ISI Kolkata",
-                  interests: ["Federated Learning", "Privacy-Preserving ML", "NLP"],
+                  role: "Assistant Professor",
+                  focus: "Software Engineering, AI, ML, NLP, VR/AR",
+                  bio: "Dr. Sayani Mondal holds a Ph.D. from IIT Kharagpur (2022). With approximately nine years of teaching experience, she explores Software Engineering, AI, ML, NLP, and emerging technologies like VR and AR to enhance user experiences.",
+                  education: "Ph.D. from IIT Kharagpur | M.Tech from IIT Kharagpur | B.Tech in CS from WBUT",
+                  interests: [
+                    "Software Engineering",
+                    "Machine Learning",
+                    "Natural Language Processing",
+                    "Virtual Reality",
+                  ],
+                  email: "sayani.m@snuniv.ac.in",
+                  scholar: "https://scholar.google.com/citations?hl=en&user=OTpaGusAAAAJ",
+                  experience: "9 Years Teaching Experience",
                 },
                 {
                   name: "Dr. Anirban Mitra",
-                  role: "Senior Researcher",
-                  focus: "Machine Learning Theory, Medical AI",
-                  bio: "Theoretical foundations of machine learning with applications in healthcare. Expert in multimodal learning systems.",
-                  education: "PhD Mathematics, University of Cambridge",
-                  interests: ["ML Theory", "Medical AI", "Multimodal Learning"],
+                  role: "Assistant Professor",
+                  focus: "Medical Image Processing, Geometric Algebra, Cryptography, IoT",
+                  bio: "Dr. Anirban Mitra serves as Professor and Head of the Department of Computer Science, Sister Nivedita University. His Ph.D. research focused on 'Glaucoma Analysis & Detection from Retinal Images.' He has published numerous papers and holds multiple patents.",
+                  education:
+                    "Ph.D. in Medical Image Processing | M.Tech in CSE (2009) | M.Sc in CS (2007) | B.Sc (Hons) in CS (2005)",
+                  interests: ["Medical Image Processing", "Geometric Algebra", "Cryptography", "IoT"],
+                  email: "anirban.m@snuniv.ac.in",
+                  experience: "15+ Years in Academia",
+                  awards: "Dynamic Educator of the Year 2022, Smart India Hackathon Mentor & Expert",
+                  photo:
+                    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-6XpsKIaP4EHeSliLLscApEzLyMuft8.png",
                 },
               ].map((member, index) => (
                 <div
                   key={index}
                   className="bg-[rgba(255,255,255,0.05)] rounded-lg p-6 hover:bg-[rgba(255,255,255,0.08)] transition-all duration-300 group"
                 >
-                  <div className="w-32 h-32 bg-gradient-to-br from-[#0084ff] to-[#0066cc] rounded-full mx-auto mb-6 flex items-center justify-center text-3xl font-bold">
-                    {member.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </div>
+                  {member.photo ? (
+                    <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden">
+                      <img
+                        src={member.photo || "/placeholder.svg"}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-32 h-32 bg-gradient-to-br from-[#0084ff] to-[#0066cc] rounded-full mx-auto mb-6 flex items-center justify-center text-3xl font-bold">
+                      {member.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                    </div>
+                  )}
                   <h3 className="text-xl font-semibold text-center mb-2 group-hover:text-[#0084ff] transition-colors">
                     {member.name}
                   </h3>
@@ -131,6 +160,9 @@ export default function PeoplePage() {
                   <p className="text-[#888] text-center text-sm mb-4">{member.focus}</p>
                   <p className="text-[#b8b8b8] text-sm leading-relaxed mb-4">{member.bio}</p>
                   <p className="text-[#888] text-xs mb-4">{member.education}</p>
+                  {member.experience && <p className="text-[#888] text-xs mb-4">{member.experience}</p>}
+                  {member.publications && <p className="text-[#888] text-xs mb-4">{member.publications}</p>}
+                  {member.awards && <p className="text-[#888] text-xs mb-4">{member.awards}</p>}
                   <div className="space-y-1 mb-4">
                     {member.interests.map((interest, idx) => (
                       <div key={idx} className="text-xs text-[#888] flex items-center gap-2">
@@ -140,8 +172,34 @@ export default function PeoplePage() {
                     ))}
                   </div>
                   <div className="flex justify-center gap-3">
-                    <Mail className="w-4 h-4 text-[#b8b8b8] hover:text-[#0084ff] cursor-pointer transition-colors" />
-                    <ExternalLink className="w-4 h-4 text-[#b8b8b8] hover:text-[#0084ff] cursor-pointer transition-colors" />
+                    {member.email && (
+                      <a
+                        href={`mailto:${member.email}`}
+                        className="text-[#b8b8b8] hover:text-[#0084ff] transition-colors"
+                      >
+                        <Mail className="w-4 h-4" />
+                      </a>
+                    )}
+                    {member.scholar && (
+                      <a
+                        href={member.scholar}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#b8b8b8] hover:text-[#0084ff] transition-colors"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
+                    {member.linkedin && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#b8b8b8] hover:text-[#0084ff] transition-colors"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
                   </div>
                 </div>
               ))}
@@ -153,10 +211,10 @@ export default function PeoplePage() {
             <h2 className="text-4xl font-light mb-12 text-center tracking-[-1px]">PhD Students</h2>
             <div className="grid md:grid-cols-4 gap-6">
               {[
-                { name: "Soumedhik Bharati", focus: "Adversarial Robustness", year: "4th Year" },
-                { name: "Sohoomlal Banerjee", focus: "Graph Neural Networks", year: "3rd Year" },
-                { name: "Shibam Mandal", focus: "Medical Image Analysis", year: "2nd Year" },
-                { name: "Sohan Das", focus: "Explainable AI", year: "1st Year" },
+                { name: "Soumedhik Bharati", focus: "Computer Vision and NLP", year: "4th Year" },
+                { name: "Sohoomlal Banerjee", focus: "Computer Vision and NLP", year: "4th Year" },
+                { name: "Shibam Mandal", focus: "Computer Vision", year: "2nd Year" },
+                { name: "Sohan Das", focus: "Computer Vision", year: "2nd Year" },
               ].map((student, index) => (
                 <div
                   key={index}
@@ -180,67 +238,18 @@ export default function PeoplePage() {
           {/* Visiting Researchers */}
           <div className="mb-20">
             <h2 className="text-4xl font-light mb-12 text-center tracking-[-1px]">Visiting Researchers</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                {
-                  name: "Dr. Maria Rodriguez",
-                  affiliation: "Stanford University",
-                  duration: "Fall 2024",
-                  focus: "Multimodal Learning",
-                },
-                {
-                  name: "Dr. James Chen",
-                  affiliation: "MIT CSAIL",
-                  duration: "Spring 2024",
-                  focus: "Federated Learning",
-                },
-              ].map((visitor, index) => (
-                <div
-                  key={index}
-                  className="bg-[rgba(255,255,255,0.05)] rounded-lg p-6 hover:bg-[rgba(255,255,255,0.08)] transition-all duration-300 group"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#0084ff]/50 to-[#0066cc]/50 rounded-full flex items-center justify-center text-lg font-bold">
-                      {visitor.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-semibold mb-1 group-hover:text-[#0084ff] transition-colors">
-                        {visitor.name}
-                      </h4>
-                      <p className="text-[#888] text-sm mb-1">{visitor.affiliation}</p>
-                      <p className="text-[#b8b8b8] text-xs mb-1">{visitor.duration}</p>
-                      <p className="text-[#888] text-xs">{visitor.focus}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+            <div className="text-center">
+              <p className="text-[#b8b8b8] italic text-lg">
+                There are currently no visiting professors associated with us.
+              </p>
             </div>
           </div>
 
           {/* Alumni */}
           <div>
             <h2 className="text-4xl font-light mb-12 text-center tracking-[-1px]">Alumni</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { name: "Dr. Priya Sharma", position: "Research Scientist at Google DeepMind", year: "2023" },
-                { name: "Dr. Rahul Gupta", position: "Assistant Professor at IIT Delhi", year: "2022" },
-                { name: "Dr. Neha Patel", position: "Principal Scientist at Microsoft Research", year: "2021" },
-                { name: "Dr. Amit Kumar", position: "Senior ML Engineer at OpenAI", year: "2020" },
-                { name: "Dr. Sneha Jain", position: "Research Director at Meta AI", year: "2019" },
-                { name: "Dr. Vikram Singh", position: "Co-founder at AI Startup", year: "2018" },
-              ].map((alumni, index) => (
-                <div
-                  key={index}
-                  className="bg-[rgba(255,255,255,0.05)] rounded-lg p-4 hover:bg-[rgba(255,255,255,0.08)] transition-all duration-300 group"
-                >
-                  <h4 className="font-semibold mb-2 group-hover:text-[#0084ff] transition-colors">{alumni.name}</h4>
-                  <p className="text-[#b8b8b8] text-sm mb-1">{alumni.position}</p>
-                  <p className="text-[#888] text-xs">Graduated {alumni.year}</p>
-                </div>
-              ))}
+            <div className="text-center">
+              <p className="text-[#b8b8b8] italic text-lg">There are currently no alumni associated with us.</p>
             </div>
           </div>
         </div>

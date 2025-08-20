@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ArrowRight, Menu, X, Download, ExternalLink, Search, Star, Calendar } from "lucide-react"
+import { ArrowRight, Menu, X } from "lucide-react"
 import Link from "next/link"
 import { AnimatedLogo } from "@/components/animated-logo"
 
@@ -199,161 +199,14 @@ export default function DatasetPage() {
             </p>
           </div>
 
-          {/* Featured Datasets */}
-          <div className="mb-20">
-            <h2 className="text-4xl font-light mb-12 text-center tracking-[-1px]">Featured Datasets</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {datasets
-                .filter((d) => d.featured)
-                .map((dataset, index) => (
-                  <div
-                    key={index}
-                    className="bg-[rgba(255,255,255,0.05)] rounded-lg p-6 hover:bg-[rgba(255,255,255,0.08)] transition-all duration-300 group relative"
-                  >
-                    <div className="absolute top-4 right-4">
-                      <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                    </div>
-                    <div className="mb-4">
-                      <span className="px-3 py-1 bg-[#0084ff]/20 text-[#0084ff] rounded-full text-xs">
-                        {dataset.category}
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-semibold group-hover:text-[#0084ff] transition-colors mb-3">
-                      {dataset.name}
-                    </h3>
-                    <p className="text-[#b8b8b8] text-sm leading-relaxed mb-4">{dataset.description}</p>
-                    <div className="flex items-center justify-between text-xs text-[#888] mb-4">
-                      <span>{dataset.size}</span>
-                      <span>{dataset.downloads} downloads</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs text-[#888]">{dataset.license}</span>
-                      <button className="flex items-center gap-1 bg-[#0084ff] text-white py-1.5 px-3 rounded text-xs hover:bg-[#0066cc] transition-colors">
-                        <Download className="w-3 h-3" />
-                        Download
-                      </button>
-                    </div>
-                  </div>
-                ))}
-            </div>
-          </div>
-
-          {/* All Datasets */}
-          <div className="mb-20">
-            <h2 className="text-4xl font-light mb-12 text-center tracking-[-1px]">All Datasets</h2>
-
-            {/* Search and Filter */}
-            <div className="flex flex-col md:flex-row gap-4 mb-8">
-              <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-[#b8b8b8]" />
-                <input
-                  type="text"
-                  placeholder="Search datasets..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full bg-[rgba(255,255,255,0.05)] border border-white/10 rounded-md py-3 pl-10 pr-4 text-white placeholder-[#b8b8b8] focus:outline-none focus:border-[#0084ff] transition-colors"
-                />
-              </div>
-              <select
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                className="bg-[rgba(255,255,255,0.05)] border border-white/10 rounded-md py-3 px-4 text-white focus:outline-none focus:border-[#0084ff] transition-colors"
-              >
-                {categories.map((category) => (
-                  <option key={category} value={category} className="bg-[#0a0a0a]">
-                    {category}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {filteredDatasets.map((dataset, index) => (
-                <div
-                  key={index}
-                  className="bg-[rgba(255,255,255,0.05)] rounded-lg p-6 hover:bg-[rgba(255,255,255,0.08)] transition-all duration-300 group"
-                >
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="flex items-center gap-3">
-                      <span className="px-3 py-1 bg-[#0084ff]/20 text-[#0084ff] rounded-full text-xs">
-                        {dataset.category}
-                      </span>
-                      <span className="text-[#888] text-xs flex items-center gap-1">
-                        <Calendar className="w-3 h-3" />
-                        {dataset.year}
-                      </span>
-                    </div>
-                    {dataset.featured && <Star className="w-4 h-4 text-yellow-400 fill-current" />}
-                  </div>
-                  <h3 className="text-lg font-semibold group-hover:text-[#0084ff] transition-colors mb-2">
-                    {dataset.name}
-                  </h3>
-                  <p className="text-[#b8b8b8] text-sm leading-relaxed mb-4">{dataset.description}</p>
-                  <div className="flex items-center justify-between text-xs text-[#888] mb-3">
-                    <span>Size: {dataset.size}</span>
-                    <span>{dataset.downloads} downloads</span>
-                  </div>
-                  <div className="flex items-center justify-between text-xs mb-4">
-                    <span className="text-[#888]">License: {dataset.license}</span>
-                    <div className="flex gap-1">
-                      {dataset.formats.map((format, idx) => (
-                        <span key={idx} className="px-2 py-1 bg-[#888]/20 text-[#888] rounded text-xs">
-                          {format}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="flex gap-2">
-                    <button className="flex-1 flex items-center justify-center gap-1 bg-[#0084ff] text-white py-2 rounded text-sm hover:bg-[#0066cc] transition-colors">
-                      <Download className="w-4 h-4" />
-                      Download
-                    </button>
-                    <button className="flex items-center justify-center gap-1 bg-transparent border border-white/20 text-white py-2 px-3 rounded text-sm hover:bg-white/5 transition-colors">
-                      <ExternalLink className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Software Tools */}
-          <div>
-            <h2 className="text-4xl font-light mb-12 text-center tracking-[-1px]">Software Tools</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {software.map((tool, index) => (
-                <div
-                  key={index}
-                  className="bg-[rgba(255,255,255,0.05)] rounded-lg p-6 hover:bg-[rgba(255,255,255,0.08)] transition-all duration-300 group"
-                >
-                  <div className="mb-4">
-                    <span className="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">
-                      {tool.category}
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-semibold group-hover:text-[#0084ff] transition-colors mb-2">
-                    {tool.name}
-                  </h3>
-                  <p className="text-[#b8b8b8] text-sm leading-relaxed mb-4">{tool.description}</p>
-                  <div className="flex items-center justify-between text-xs text-[#888] mb-4">
-                    <span>{tool.version}</span>
-                    <span>{tool.downloads} downloads</span>
-                  </div>
-                  <div className="flex items-center justify-between text-xs mb-4">
-                    <span className="text-[#888]">{tool.language}</span>
-                    <span className="text-[#888]">{tool.license}</span>
-                  </div>
-                  <div className="flex gap-2">
-                    <button className="flex-1 flex items-center justify-center gap-1 bg-[#0084ff] text-white py-2 rounded text-sm hover:bg-[#0066cc] transition-colors">
-                      <Download className="w-4 h-4" />
-                      Install
-                    </button>
-                    <button className="flex items-center justify-center gap-1 bg-transparent border border-white/20 text-white py-2 px-3 rounded text-sm hover:bg-white/5 transition-colors">
-                      <ExternalLink className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              ))}
+          {/* Coming Soon Message */}
+          <div className="text-center py-20">
+            <div className="max-w-2xl mx-auto">
+              <h2 className="text-4xl font-light mb-6 tracking-[-1px] text-[#b8b8b8]">Coming Soon</h2>
+              <p className="text-lg text-[#888] leading-relaxed italic">
+                There are currently no datasets to be publicly showcased. We are working on preparing our research
+                datasets and software tools for public release. Please check back soon for updates.
+              </p>
             </div>
           </div>
         </div>
