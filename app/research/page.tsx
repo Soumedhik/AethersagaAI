@@ -1,17 +1,23 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { ArrowRight, Menu, X, ExternalLink } from "lucide-react"
-import Link from "next/link"
-import { AnimatedLogo } from "@/components/animated-logo"
+import { useState } from "react";
+import { ArrowRight, Menu, X, ExternalLink } from "lucide-react";
+import Link from "next/link";
+import { AnimatedLogo } from "@/components/animated-logo";
 
 export default function ResearchPage() {
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden relative">
       <div className="absolute inset-0 pointer-events-none">
-        <video className="absolute inset-0 w-full h-full object-cover opacity-20" autoPlay muted loop playsInline>
+        <video
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
           <source
             src="https://cdn.discordapp.com/attachments/1222474900313473117/1405564765614374993/Space.mp4"
             type="video/mp4"
@@ -26,7 +32,10 @@ export default function ResearchPage() {
           <AnimatedLogo />
 
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/research" className="text-[15px] transition-colors duration-200 text-[#0084ff]">
+            <Link
+              href="/research"
+              className="text-[15px] transition-colors duration-200 text-[#0084ff]"
+            >
               Research
             </Link>
             <Link
@@ -35,7 +44,10 @@ export default function ResearchPage() {
             >
               Publications
             </Link>
-            <Link href="/people" className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white">
+            <Link
+              href="/people"
+              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
+            >
               People
             </Link>
             <Link
@@ -44,7 +56,10 @@ export default function ResearchPage() {
             >
               Datasets
             </Link>
-            <Link href="/join" className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white">
+            <Link
+              href="/join"
+              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
+            >
               Join
             </Link>
           </div>
@@ -65,7 +80,11 @@ export default function ResearchPage() {
               className="inline-flex items-center justify-center rounded-md p-2 text-white/80 hover:text-white hover:bg-white/5 transition"
               onClick={() => setMobileOpen((v) => !v)}
             >
-              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </nav>
@@ -75,10 +94,12 @@ export default function ResearchPage() {
       <main className="pt-[120px] pb-20 relative z-10">
         <div className="max-w-[1400px] mx-auto px-[60px]">
           <div className="text-center mb-16">
-            <h1 className="text-6xl font-light mb-6 tracking-[-1px]">Research</h1>
+            <h1 className="text-6xl font-light mb-6 tracking-[-1px]">
+              Research
+            </h1>
             <p className="text-xl text-[#b8b8b8] max-w-3xl mx-auto leading-relaxed">
-              Our research spans multiple domains of machine learning, from theoretical foundations to practical
-              applications.
+              Our research spans multiple domains of machine learning, from
+              theoretical foundations to practical applications.
             </p>
           </div>
 
@@ -89,36 +110,42 @@ export default function ResearchPage() {
                 title: "Deep Learning",
                 description:
                   "Advanced neural architectures and optimization techniques for complex pattern recognition.",
-                projects: ["Neural Architecture Search", "Efficient Training Methods", "Model Compression"],
+                projects: [
+                  "Neural Architecture Search",
+                  "Efficient Training Methods",
+                  "Model Compression",
+                ],
               },
               {
                 title: "Computer Vision",
                 description:
                   "Visual understanding systems for medical imaging, autonomous systems, and multimedia analysis.",
-                projects: ["Medical Image Analysis", "Object Detection", "Scene Understanding"],
+                projects: [
+                  "Medical Image Analysis",
+                  "Object Detection",
+                  "Scene Understanding",
+                ],
               },
               {
                 title: "Natural Language Processing",
                 description:
                   "Language understanding and generation systems with focus on multilingual and domain-specific applications.",
-                projects: ["Text Generation", "Sentiment Analysis", "Machine Translation"],
+                projects: [
+                  "Text Generation",
+                  "Sentiment Analysis",
+                  "Machine Translation",
+                ],
               },
               {
-                title: "Federated Learning",
+                title: "Reinforcement Learning",
                 description:
-                  "Privacy-preserving distributed learning systems for collaborative AI without data sharing.",
-                projects: ["Privacy Mechanisms", "Communication Efficiency", "Robustness"],
-              },
-              {
-                title: "Explainable AI",
-                description:
-                  "Interpretable machine learning models for high-stakes decision making in healthcare and finance.",
-                projects: ["Model Interpretability", "Fairness Analysis", "Trust Metrics"],
-              },
-              {
-                title: "Adversarial Robustness",
-                description: "Secure AI systems resistant to adversarial attacks and distribution shifts.",
-                projects: ["Defense Mechanisms", "Attack Detection", "Robust Training"],
+                  "Developing agents that learn to make optimal decisions in an environment to maximize a reward signal.",
+                projects: [
+                  "Deep Q-Networks (DQN)",
+                  "Policy Gradient Methods",
+                  "Actor-Critic Models",
+                  "Multi-Agent Systems",
+                ],
               },
             ].map((area, index) => (
               <div
@@ -128,10 +155,15 @@ export default function ResearchPage() {
                 <h3 className="text-xl font-semibold mb-3 group-hover:text-[#0084ff] transition-colors">
                   {area.title}
                 </h3>
-                <p className="text-[#b8b8b8] text-sm leading-relaxed mb-4">{area.description}</p>
+                <p className="text-[#b8b8b8] text-sm leading-relaxed mb-4">
+                  {area.description}
+                </p>
                 <div className="space-y-2">
                   {area.projects.map((project, idx) => (
-                    <div key={idx} className="text-xs text-[#888] flex items-center gap-2">
+                    <div
+                      key={idx}
+                      className="text-xs text-[#888] flex items-center gap-2"
+                    >
                       <div className="w-1 h-1 bg-[#0084ff] rounded-full"></div>
                       {project}
                     </div>
@@ -143,11 +175,14 @@ export default function ResearchPage() {
 
           {/* Current Projects */}
           <div className="mb-20">
-            <h2 className="text-4xl font-light mb-12 text-center tracking-[-1px]">Current Projects</h2>
+            <h2 className="text-4xl font-light mb-12 text-center tracking-[-1px]">
+              Current Projects
+            </h2>
             <div className="grid md:grid-cols-2 gap-8">
               {[
                 {
-                  title: "Efficient Neural Architecture Search via Progressive Pruning",
+                  title:
+                    "Efficient Neural Architecture Search via Progressive Pruning",
                   status: "Active",
                   funding: "NSF Grant",
                   description:
@@ -158,14 +193,16 @@ export default function ResearchPage() {
                   title: "Privacy-Preserving Federated Learning Framework",
                   status: "Active",
                   funding: "Industry Partnership",
-                  description: "Building secure collaborative learning systems with differential privacy guarantees.",
+                  description:
+                    "Building secure collaborative learning systems with differential privacy guarantees.",
                   team: ["Dr. S. Mondal", "S. Banerjee", "S. Das"],
                 },
                 {
                   title: "Multimodal Medical Image Analysis Platform",
                   status: "Clinical Trial",
                   funding: "Medical Research Council",
-                  description: "AI-powered diagnostic system improving accuracy by 23% in real-world medical settings.",
+                  description:
+                    "AI-powered diagnostic system improving accuracy by 23% in real-world medical settings.",
                   team: ["Dr. A. Mitra", "S. Mandal", "S. Das"],
                 },
                 {
@@ -199,8 +236,12 @@ export default function ResearchPage() {
                     {project.title}
                   </h3>
                   <p className="text-[#888] text-sm mb-3">{project.funding}</p>
-                  <p className="text-[#b8b8b8] text-sm leading-relaxed mb-4">{project.description}</p>
-                  <div className="text-xs text-[#888]">Team: {project.team.join(", ")}</div>
+                  <p className="text-[#b8b8b8] text-sm leading-relaxed mb-4">
+                    {project.description}
+                  </p>
+                  <div className="text-xs text-[#888]">
+                    Team: {project.team.join(", ")}
+                  </div>
                 </div>
               ))}
             </div>
@@ -213,21 +254,33 @@ export default function ResearchPage() {
         <div className="max-w-[1400px] mx-auto px-[60px]">
           <div className="grid md:grid-cols-4 gap-12">
             <div className="md:col-span-1">
-              <div className="text-xl mb-4 font-sans font-extralight">AetherMind</div>
+              <div className="text-xl mb-4 font-sans font-extralight">
+                AetherMind
+              </div>
               <p className="text-[#b8b8b8] text-sm leading-relaxed mb-6">
-                Advancing machine learning through rigorous research and open collaboration.
+                Advancing machine learning through rigorous research and open
+                collaboration.
               </p>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-4">Explore</h4>
               <div className="space-y-3">
-                <Link href="/research" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/research"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   Research
                 </Link>
-                <Link href="/publications" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/publications"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   Publications
                 </Link>
-                <Link href="/people" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/people"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   People
                 </Link>
               </div>
@@ -235,13 +288,22 @@ export default function ResearchPage() {
             <div>
               <h4 className="text-white font-semibold mb-4">Resources</h4>
               <div className="space-y-3">
-                <Link href="/dataset" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/dataset"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   Datasets & Software
                 </Link>
-                <Link href="/join#contact" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/join#contact"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   Contact
                 </Link>
-                <Link href="/join" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/join"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   Join Us
                 </Link>
               </div>
@@ -249,16 +311,22 @@ export default function ResearchPage() {
             <div>
               <h4 className="text-white font-semibold mb-4">Contact</h4>
               <div className="space-y-3">
-                <div className="text-[#b8b8b8] text-sm">aethermind@university.edu</div>
-                <div className="text-[#b8b8b8] text-sm">123 Research Ave, Kolkata, IN</div>
+                <div className="text-[#b8b8b8] text-sm">
+                  aethermind@university.edu
+                </div>
+                <div className="text-[#b8b8b8] text-sm">
+                  123 Research Ave, Kolkata, IN
+                </div>
               </div>
             </div>
           </div>
           <div className="border-t border-white/10 mt-12 pt-8">
-            <p className="text-[#888] text-sm text-center">© 2025 AetherMind Research Group. All rights reserved.</p>
+            <p className="text-[#888] text-sm text-center">
+              © 2025 AetherMind Research Group. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }
