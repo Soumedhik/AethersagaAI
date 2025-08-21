@@ -225,11 +225,11 @@ export default function JoinPage() {
             </p>
             <div className="flex flex-col md:flex-row gap-4 justify-center">
               <a
-                href="mailto:careers@aethermind.edu"
+                href="mailto:soumedhikbharati@gmail.com"
                 className="flex items-center gap-2 bg-[#0084ff] text-white py-3 px-6 rounded-md font-medium hover:bg-[#0066cc] transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                careers@aethermind.edu
+                soumedhikbharati@gmail.com
               </a>
               <a
                 href="/join#contact"
