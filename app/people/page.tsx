@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ArrowRight, Menu, X, Mail, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { AnimatedLogo } from "@/components/animated-logo";
-import Image from "next/image"; // Import the next/image component for optimized images
+import Image from "next/image";
 
 interface Person {
   name: string;
@@ -23,7 +23,7 @@ interface Person {
   year?: string;
 }
 
-const faculty: Person[] = [
+const members: Person[] = [
   {
     name: "Dr. Swarup Kr Ghosh",
     role: "Associate Professor",
@@ -65,7 +65,7 @@ const faculty: Person[] = [
   },
   {
     name: "Dr. Anirban Mitra",
-    role: "Assistant Professor",
+    role: "Professor and HOD",
     focus: "Medical Image Processing, Geometric Algebra, Cryptography, IoT",
     bio: "Dr. Anirban Mitra serves as Professor and Head of the Department of Computer Science, Sister Nivedita University. His Ph.D. research focused on 'Glaucoma Analysis & Detection from Retinal Images.' He has published numerous papers and holds multiple patents.",
     education:
@@ -83,32 +83,37 @@ const faculty: Person[] = [
       "Dynamic Educator of the Year 2022, Smart India Hackathon Mentor & Expert",
     photo: "/media/Anirban-Mitra.jpg",
   },
-];
-
-const students: Person[] = [
   {
     name: "Soumedhik Bharati",
     focus: "Computer Vision and NLP",
     year: "4th Year",
     photo: "/media/soumedhik-bharati.jpeg",
+    email: "soumedhikbharati@gmail.com",
+    role: "Research Student",
   },
   {
     name: "Sohoomlal Banerjee",
     focus: "Computer Vision and NLP",
     year: "4th Year",
     photo: "/media/sohoomlal-banerjee.jpeg",
+    email: "sohoomlal@gmail.com",
+    role: "Research Student",
   },
   {
     name: "Shibam Mandal",
     focus: "Computer Vision",
     year: "2nd Year",
     photo: "/media/shibam-mandal.jpeg",
+    email: "shibammandalfy@gmail.com",
+    role: "Research Student",
   },
   {
     name: "Sohan Das",
     focus: "Computer Vision",
     year: "2nd Year",
     photo: "/media/sohan-das.jpeg",
+    email: "sohan4w1@gmail.com",
+    role: "Research Student",
   },
 ];
 
@@ -208,123 +213,22 @@ export default function PeoplePage() {
             </p>
           </div>
 
-          {/* Faculty */}
+          {/* Members */}
           <div className="mb-20">
             <h2 className="text-4xl font-light mb-12 text-center tracking-[-1px]">
-              Faculty
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {faculty.map((member, index) => (
-                <div
-                  key={index}
-                  className="bg-[rgba(255,255,255,0.05)] rounded-lg p-6 hover:bg-[rgba(255,255,255,0.08)] transition-all duration-300 group"
-                >
-                  {member.photo ? (
-                    <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden">
-                      <Image
-                        src={member.photo}
-                        alt={member.name}
-                        width={128}
-                        height={128}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  ) : (
-                    <div className="w-32 h-32 bg-gradient-to-br from-[#0084ff] to-[#0066cc] rounded-full mx-auto mb-6 flex items-center justify-center text-3xl font-bold">
-                      {member.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
-                    </div>
-                  )}
-                  <h3 className="text-xl font-semibold text-center mb-2 group-hover:text-[#0084ff] transition-colors">
-                    {member.name}
-                  </h3>
-                  <p className="text-[#0084ff] text-center mb-2">
-                    {member.role}
-                  </p>
-                  <p className="text-[#888] text-center text-sm mb-4">
-                    {member.focus}
-                  </p>
-                  <p className="text-[#b8b8b8] text-sm leading-relaxed mb-4">
-                    {member.bio}
-                  </p>
-                  <p className="text-[#888] text-xs mb-4">{member.education}</p>
-                  {member.experience && (
-                    <p className="text-[#888] text-xs mb-4">
-                      {member.experience}
-                    </p>
-                  )}
-                  {member.publications && (
-                    <p className="text-[#888] text-xs mb-4">
-                      {member.publications}
-                    </p>
-                  )}
-                  {member.awards && (
-                    <p className="text-[#888] text-xs mb-4">{member.awards}</p>
-                  )}
-                  <div className="space-y-1 mb-4">
-                    {member.interests?.map((interest, idx) => (
-                      <div
-                        key={idx}
-                        className="text-xs text-[#888] flex items-center gap-2"
-                      >
-                        <div className="w-1 h-1 bg-[#0084ff] rounded-full"></div>
-                        {interest}
-                      </div>
-                    ))}
-                  </div>
-                  <div className="flex justify-center gap-3">
-                    {member.email && (
-                      <a
-                        href={`mailto:${member.email}`}
-                        className="text-[#b8b8b8] hover:text-[#0084ff] transition-colors"
-                      >
-                        <Mail className="w-4 h-4" />
-                      </a>
-                    )}
-                    {member.scholar && (
-                      <a
-                        href={member.scholar}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#b8b8b8] hover:text-[#0084ff] transition-colors"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    )}
-                    {member.linkedin && (
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#b8b8b8] hover:text-[#0084ff] transition-colors"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Students */}
-          <div className="mb-20">
-            <h2 className="text-4xl font-light mb-12 text-center tracking-[-1px]">
-              PhD Students
+              Members
             </h2>
             <div className="grid md:grid-cols-4 gap-6">
-              {students.map((student, index) => (
+              {members.map((member, index) => (
                 <div
                   key={index}
                   className="bg-[rgba(255,255,255,0.05)] rounded-lg p-4 hover:bg-[rgba(255,255,255,0.08)] transition-all duration-300 text-center group"
                 >
-                  {student.photo ? (
+                  {member.photo ? (
                     <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
                       <Image
-                        src={student.photo}
-                        alt={student.name}
+                        src={member.photo}
+                        alt={member.name}
                         width={80}
                         height={80}
                         className="w-full h-full object-cover"
@@ -332,18 +236,27 @@ export default function PeoplePage() {
                     </div>
                   ) : (
                     <div className="w-20 h-20 bg-gradient-to-br from-[#0084ff]/70 to-[#0066cc]/70 rounded-full mx-auto mb-4 flex items-center justify-center text-lg font-bold">
-                      {student.name
+                      {member.name
                         .split(" ")
                         .map((n) => n[0])
                         .join("")}
                     </div>
                   )}
                   <h4 className="font-semibold mb-1 group-hover:text-[#0084ff] transition-colors">
-                    {student.name}
+                    {member.name}
                   </h4>
-                  <p className="text-[#888] text-sm mb-1">{student.year}</p>
-                  <p className="text-[#b8b8b8] text-xs mb-3">{student.focus}</p>
-                  <Mail className="w-4 h-4 text-[#b8b8b8] hover:text-[#0084ff] cursor-pointer transition-colors mx-auto" />
+                  <p className="text-[#888] text-sm mb-1">
+                    {member.role || member.year}
+                  </p>
+                  <p className="text-[#b8b8b8] text-xs mb-3">{member.focus}</p>
+                  {member.email && (
+                    <a
+                      href={`mailto:${member.email}`}
+                      className="inline-block mx-auto"
+                    >
+                      <Mail className="w-4 h-4 text-[#b8b8b8] hover:text-[#0084ff] cursor-pointer transition-colors" />
+                    </a>
+                  )}
                 </div>
               ))}
             </div>
@@ -381,7 +294,9 @@ export default function PeoplePage() {
           <div className="grid md:grid-cols-4 gap-12">
             {/* Brand Section */}
             <div className="md:col-span-1">
-              <div className="text-xl mb-4 font-extralight">AetherMind</div>
+              <div className="text-xl mb-4 font-extralight font-sans tracking-wider">
+                AetherMind Epistemic AI
+              </div>
               <p className="text-[#b8b8b8] text-sm leading-relaxed mb-6">
                 Advancing machine learning through rigorous research and open
                 collaboration.
@@ -454,7 +369,8 @@ export default function PeoplePage() {
 
           <div className="border-t border-white/10 mt-12 pt-8">
             <p className="text-[#888] text-sm text-center">
-              © 2025 AetherMind Research Group. All rights reserved.
+              © 2025 AetherMind Epistemic AI Research Group. All rights
+              reserved.
             </p>
           </div>
         </div>

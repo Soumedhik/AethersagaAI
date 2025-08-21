@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { ArrowRight, Menu, X } from "lucide-react"
-import Link from "next/link"
-import { AnimatedLogo } from "@/components/animated-logo"
+import { useState } from "react";
+import { ArrowRight, Menu, X } from "lucide-react";
+import Link from "next/link";
+import { AnimatedLogo } from "@/components/animated-logo";
 
 export default function DatasetPage() {
-  const [mobileOpen, setMobileOpen] = useState(false)
-  const [searchTerm, setSearchTerm] = useState("")
-  const [selectedCategory, setSelectedCategory] = useState("All")
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const datasets = [
     {
@@ -62,7 +62,8 @@ export default function DatasetPage() {
     {
       name: "MultiModal-Fusion",
       category: "Multimodal Learning",
-      description: "Cross-modal dataset combining text, images, and audio for multimodal learning research.",
+      description:
+        "Cross-modal dataset combining text, images, and audio for multimodal learning research.",
       size: "4.2 GB",
       downloads: 789,
       license: "CC BY 4.0",
@@ -73,7 +74,8 @@ export default function DatasetPage() {
     {
       name: "ExplainableAI-Metrics",
       category: "Explainable AI",
-      description: "Comprehensive evaluation metrics and human study data for explainable AI methods.",
+      description:
+        "Comprehensive evaluation metrics and human study data for explainable AI methods.",
       size: "234 MB",
       downloads: 445,
       license: "MIT",
@@ -81,13 +83,14 @@ export default function DatasetPage() {
       featured: false,
       formats: ["CSV", "JSON", "Python"],
     },
-  ]
+  ];
 
   const software = [
     {
       name: "AetherML Framework",
       category: "Deep Learning",
-      description: "Unified framework for efficient neural architecture search and model optimization.",
+      description:
+        "Unified framework for efficient neural architecture search and model optimization.",
       version: "v2.1.0",
       downloads: 3421,
       license: "Apache 2.0",
@@ -97,7 +100,8 @@ export default function DatasetPage() {
     {
       name: "FedPrivacy Toolkit",
       category: "Federated Learning",
-      description: "Privacy-preserving federated learning toolkit with differential privacy guarantees.",
+      description:
+        "Privacy-preserving federated learning toolkit with differential privacy guarantees.",
       version: "v1.3.2",
       downloads: 1876,
       license: "MIT",
@@ -107,29 +111,40 @@ export default function DatasetPage() {
     {
       name: "RobustVision Library",
       category: "Computer Vision",
-      description: "Computer vision library with built-in adversarial robustness and uncertainty quantification.",
+      description:
+        "Computer vision library with built-in adversarial robustness and uncertainty quantification.",
       version: "v0.9.1",
       downloads: 967,
       license: "BSD-3",
       language: "Python",
       github: "aethermind/robustvision",
     },
-  ]
+  ];
 
   const filteredDatasets = datasets.filter((dataset) => {
     const matchesSearch =
       dataset.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      dataset.description.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesCategory = selectedCategory === "All" || dataset.category === selectedCategory
-    return matchesSearch && matchesCategory
-  })
+      dataset.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory =
+      selectedCategory === "All" || dataset.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
 
-  const categories = ["All", ...Array.from(new Set(datasets.map((d) => d.category)))]
+  const categories = [
+    "All",
+    ...Array.from(new Set(datasets.map((d) => d.category))),
+  ];
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden relative">
       <div className="absolute inset-0 pointer-events-none">
-        <video className="absolute inset-0 w-full h-full object-cover opacity-20" autoPlay muted loop playsInline>
+        <video
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
           <source
             src="https://cdn.discordapp.com/attachments/1222474900313473117/1405564765614374993/Space.mp4"
             type="video/mp4"
@@ -156,13 +171,22 @@ export default function DatasetPage() {
             >
               Publications
             </Link>
-            <Link href="/people" className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white">
+            <Link
+              href="/people"
+              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
+            >
               People
             </Link>
-            <Link href="/dataset" className="text-[15px] transition-colors duration-200 text-[#0084ff]">
+            <Link
+              href="/dataset"
+              className="text-[15px] transition-colors duration-200 text-[#0084ff]"
+            >
               Datasets
             </Link>
-            <Link href="/join" className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white">
+            <Link
+              href="/join"
+              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
+            >
               Join
             </Link>
           </div>
@@ -183,7 +207,11 @@ export default function DatasetPage() {
               className="inline-flex items-center justify-center rounded-md p-2 text-white/80 hover:text-white hover:bg-white/5 transition"
               onClick={() => setMobileOpen((v) => !v)}
             >
-              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </nav>
@@ -193,19 +221,25 @@ export default function DatasetPage() {
       <main className="pt-[120px] pb-20 relative z-10">
         <div className="max-w-[1400px] mx-auto px-[60px]">
           <div className="text-center mb-16">
-            <h1 className="text-6xl font-light mb-6 tracking-[-1px]">Datasets & Software</h1>
+            <h1 className="text-6xl font-light mb-6 tracking-[-1px]">
+              Datasets & Software
+            </h1>
             <p className="text-xl text-[#b8b8b8] max-w-3xl mx-auto leading-relaxed">
-              Open-source datasets and software tools developed by AetherMind to advance machine learning research.
+              Open-source datasets and software tools developed by AetherMind to
+              advance machine learning research.
             </p>
           </div>
 
           {/* Coming Soon Message */}
           <div className="text-center py-20">
             <div className="max-w-2xl mx-auto">
-              <h2 className="text-4xl font-light mb-6 tracking-[-1px] text-[#b8b8b8]">Coming Soon</h2>
+              <h2 className="text-4xl font-light mb-6 tracking-[-1px] text-[#b8b8b8]">
+                Coming Soon
+              </h2>
               <p className="text-lg text-[#888] leading-relaxed italic">
-                There are currently no datasets to be publicly showcased. We are working on preparing our research
-                datasets and software tools for public release. Please check back soon for updates.
+                There are currently no datasets to be publicly showcased. We are
+                working on preparing our research datasets and software tools
+                for public release. Please check back soon for updates.
               </p>
             </div>
           </div>
@@ -216,53 +250,89 @@ export default function DatasetPage() {
       <footer className="relative z-10 bg-[rgba(10,10,10,0.98)] border-t border-white/10 py-16">
         <div className="max-w-[1400px] mx-auto px-[60px]">
           <div className="grid md:grid-cols-4 gap-12">
+            {/* Brand Section */}
             <div className="md:col-span-1">
-              <div className="text-xl mb-4 font-extralight">AetherMind</div>
+              <div className="text-xl mb-4 font-extralight font-sans tracking-wider">
+                AetherMind Epistemic AI
+              </div>
               <p className="text-[#b8b8b8] text-sm leading-relaxed mb-6">
-                Advancing machine learning through rigorous research and open collaboration.
+                Advancing machine learning through rigorous research and open
+                collaboration.
               </p>
             </div>
+
+            {/* Explore */}
             <div>
               <h4 className="text-white font-semibold mb-4">Explore</h4>
               <div className="space-y-3">
-                <Link href="/research" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/research"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   Research
                 </Link>
-                <Link href="/publications" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/publications"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   Publications
                 </Link>
-                <Link href="/people" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/people"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   People
                 </Link>
               </div>
             </div>
+
+            {/* Resources */}
             <div>
               <h4 className="text-white font-semibold mb-4">Resources</h4>
               <div className="space-y-3">
-                <Link href="/dataset" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/dataset"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   Datasets & Software
                 </Link>
-                <Link href="/join#contact" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/join#contact"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   Contact
                 </Link>
-                <Link href="/join" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/join"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   Join Us
                 </Link>
               </div>
             </div>
+
+            {/* Contact */}
             <div>
               <h4 className="text-white font-semibold mb-4">Contact</h4>
               <div className="space-y-3">
-                <div className="text-[#b8b8b8] text-sm">aethermind@university.edu</div>
-                <div className="text-[#b8b8b8] text-sm">123 Research Ave, Kolkata, IN</div>
+                <div className="text-[#b8b8b8] text-sm">
+                  aethermind@university.edu
+                </div>
+                <div className="text-[#b8b8b8] text-sm">
+                  123 Research Ave, Kolkata, IN
+                </div>
               </div>
             </div>
           </div>
+
           <div className="border-t border-white/10 mt-12 pt-8">
-            <p className="text-[#888] text-sm text-center">© 2025 AetherMind Research Group. All rights reserved.</p>
+            <p className="text-[#888] text-sm text-center">
+              © 2025 AetherMind Epistemic AI Research Group. All rights
+              reserved.
+            </p>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }

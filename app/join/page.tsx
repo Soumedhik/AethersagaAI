@@ -1,29 +1,44 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { ArrowRight, Menu, X, Mail, MapPin, Users, Phone, Globe } from "lucide-react"
-import Link from "next/link"
-import { AnimatedLogo } from "@/components/animated-logo"
+import { useState, useEffect } from "react";
+import {
+  ArrowRight,
+  Menu,
+  X,
+  Mail,
+  MapPin,
+  Users,
+  Phone,
+  Globe,
+} from "lucide-react";
+import Link from "next/link";
+import { AnimatedLogo } from "@/components/animated-logo";
 
 export default function JoinPage() {
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     // Auto-scroll to contact section if hash is present
     if (window.location.hash === "#contact") {
       setTimeout(() => {
-        const contactSection = document.getElementById("contact")
+        const contactSection = document.getElementById("contact");
         if (contactSection) {
-          contactSection.scrollIntoView({ behavior: "smooth" })
+          contactSection.scrollIntoView({ behavior: "smooth" });
         }
-      }, 100)
+      }, 100);
     }
-  }, [])
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden relative">
       <div className="absolute inset-0 pointer-events-none">
-        <video className="absolute inset-0 w-full h-full object-cover opacity-20" autoPlay muted loop playsInline>
+        <video
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
           <source
             src="https://cdn.discordapp.com/attachments/1222474900313473117/1405564765614374993/Space.mp4"
             type="video/mp4"
@@ -50,7 +65,10 @@ export default function JoinPage() {
             >
               Publications
             </Link>
-            <Link href="/people" className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white">
+            <Link
+              href="/people"
+              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
+            >
               People
             </Link>
             <Link
@@ -59,7 +77,10 @@ export default function JoinPage() {
             >
               Datasets
             </Link>
-            <Link href="/join" className="text-[15px] transition-colors duration-200 text-[#0084ff]">
+            <Link
+              href="/join"
+              className="text-[15px] transition-colors duration-200 text-[#0084ff]"
+            >
               Join
             </Link>
           </div>
@@ -80,7 +101,11 @@ export default function JoinPage() {
               className="inline-flex items-center justify-center rounded-md p-2 text-white/80 hover:text-white hover:bg-white/5 transition"
               onClick={() => setMobileOpen((v) => !v)}
             >
-              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </nav>
@@ -90,21 +115,27 @@ export default function JoinPage() {
       <main className="pt-[120px] pb-20 relative z-10">
         <div className="max-w-[1400px] mx-auto px-[60px]">
           <div className="text-center mb-16">
-            <h1 className="text-6xl font-light mb-6 tracking-[-1px]">Join AetherMind</h1>
+            <h1 className="text-6xl font-light mb-6 tracking-[-1px]">
+              Join AetherMind Epistemic AI
+            </h1>
             <p className="text-xl text-[#b8b8b8] max-w-3xl mx-auto leading-relaxed">
-              Be part of cutting-edge research that shapes the future of artificial intelligence and machine learning.
+              Be part of cutting-edge research that shapes the future of
+              artificial intelligence and machine learning.
             </p>
           </div>
 
           {/* Application Process */}
           <div className="mb-20">
-            <h2 className="text-4xl font-light mb-12 text-center tracking-[-1px]">Application Process</h2>
+            <h2 className="text-4xl font-light mb-12 text-center tracking-[-1px]">
+              Application Process
+            </h2>
             <div className="grid md:grid-cols-4 gap-8">
               {[
                 {
                   step: "1",
                   title: "Submit Application",
-                  description: "Send your CV, research statement, and relevant documents to our recruitment team.",
+                  description:
+                    "Send your CV, research statement, and relevant documents to our recruitment team.",
                 },
                 {
                   step: "2",
@@ -115,12 +146,14 @@ export default function JoinPage() {
                 {
                   step: "3",
                   title: "Interview Process",
-                  description: "Selected candidates participate in technical interviews and research discussions.",
+                  description:
+                    "Selected candidates participate in technical interviews and research discussions.",
                 },
                 {
                   step: "4",
                   title: "Final Decision",
-                  description: "Successful candidates receive offers and begin their journey with AetherMind.",
+                  description:
+                    "Successful candidates receive offers and begin their journey with us.",
                 },
               ].map((step, index) => (
                 <div key={index} className="text-center">
@@ -128,7 +161,9 @@ export default function JoinPage() {
                     {step.step}
                   </div>
                   <h3 className="text-lg font-semibold mb-3">{step.title}</h3>
-                  <p className="text-[#b8b8b8] text-sm leading-relaxed">{step.description}</p>
+                  <p className="text-[#b8b8b8] text-sm leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -136,13 +171,16 @@ export default function JoinPage() {
 
           {/* Benefits */}
           <div className="mb-20">
-            <h2 className="text-4xl font-light mb-12 text-center tracking-[-1px]">Why Join AetherMind?</h2>
+            <h2 className="text-4xl font-light mb-12 text-center tracking-[-1px]">
+              Why Join AetherMind?
+            </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
                   icon: <Users className="w-8 h-8" />,
                   title: "World-Class Research",
-                  description: "Work alongside leading researchers on cutting-edge projects with global impact.",
+                  description:
+                    "Work alongside leading researchers on cutting-edge projects with global impact.",
                 },
                 {
                   icon: <Mail className="w-8 h-8" />,
@@ -153,27 +191,37 @@ export default function JoinPage() {
                 {
                   icon: <MapPin className="w-8 h-8" />,
                   title: "Growth Opportunities",
-                  description: "Professional development, conference attendance, and career advancement support.",
+                  description:
+                    "Professional development, conference attendance, and career advancement support.",
                 },
               ].map((benefit, index) => (
                 <div
                   key={index}
                   className="bg-[rgba(255,255,255,0.05)] rounded-lg p-6 text-center hover:bg-[rgba(255,255,255,0.08)] transition-all duration-300"
                 >
-                  <div className="text-[#0084ff] mb-4 flex justify-center">{benefit.icon}</div>
-                  <h3 className="text-lg font-semibold mb-3">{benefit.title}</h3>
-                  <p className="text-[#b8b8b8] text-sm leading-relaxed">{benefit.description}</p>
+                  <div className="text-[#0084ff] mb-4 flex justify-center">
+                    {benefit.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold mb-3">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-[#b8b8b8] text-sm leading-relaxed">
+                    {benefit.description}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Contact for Applications */}
-          <div className="text-center bg-[rgba(255,255,255,0.05)] rounded-lg p-12 mb-20">
+          <div
+            id="contact"
+            className="text-center bg-[rgba(255,255,255,0.05)] rounded-lg p-12 mb-20"
+          >
             <h2 className="text-3xl font-light mb-6">Ready to Apply?</h2>
             <p className="text-[#b8b8b8] mb-8 max-w-2xl mx-auto">
-              Send your application materials to our recruitment team. We review applications on a rolling basis and
-              encourage early submission.
+              Send your application materials to our recruitment team. We review
+              applications on a rolling basis and encourage early submission.
             </p>
             <div className="flex flex-col md:flex-row gap-4 justify-center">
               <a
@@ -184,151 +232,18 @@ export default function JoinPage() {
                 careers@aethermind.edu
               </a>
               <a
-                href="#contact"
+                href="/join#contact"
                 className="flex items-center gap-2 bg-transparent border border-white/20 text-white py-3 px-6 rounded-md font-medium hover:bg-white/5 transition-colors"
                 onClick={(e) => {
-                  e.preventDefault()
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+                  e.preventDefault();
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
                 Contact Us
                 <ArrowRight className="w-4 h-4" />
               </a>
-            </div>
-          </div>
-
-          <div id="contact" className="mb-20">
-            <h2 className="text-4xl font-light mb-12 text-center tracking-[-1px]">Contact Us</h2>
-            <div className="grid md:grid-cols-2 gap-12">
-              {/* Contact Information */}
-              <div className="space-y-8">
-                <div>
-                  <h3 className="text-2xl font-light mb-6">Get in Touch</h3>
-                  <p className="text-[#b8b8b8] leading-relaxed mb-8">
-                    Have questions about our research, collaboration opportunities, or application process? We'd love to
-                    hear from you.
-                  </p>
-                </div>
-
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#0084ff]/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-5 h-5 text-[#0084ff]" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-1">Email</h4>
-                      <p className="text-[#b8b8b8] text-sm">General: info@aethermind.edu</p>
-                      <p className="text-[#b8b8b8] text-sm">Careers: careers@aethermind.edu</p>
-                      <p className="text-[#b8b8b8] text-sm">Research: research@aethermind.edu</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#0084ff]/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-5 h-5 text-[#0084ff]" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-1">Address</h4>
-                      <p className="text-[#b8b8b8] text-sm">AetherMind Research Group</p>
-                      <p className="text-[#b8b8b8] text-sm">123 Research Avenue</p>
-                      <p className="text-[#b8b8b8] text-sm">Kolkata, West Bengal 700001</p>
-                      <p className="text-[#b8b8b8] text-sm">India</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#0084ff]/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-5 h-5 text-[#0084ff]" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-1">Phone</h4>
-                      <p className="text-[#b8b8b8] text-sm">+91 33 1234 5678</p>
-                      <p className="text-[#b8b8b8] text-sm">Office Hours: 9:00 AM - 6:00 PM IST</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#0084ff]/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Globe className="w-5 h-5 text-[#0084ff]" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-1">Social Media</h4>
-                      <div className="space-y-1">
-                        <a href="#" className="text-[#b8b8b8] text-sm hover:text-[#0084ff] transition-colors block">
-                          Twitter: @AetherMindAI
-                        </a>
-                        <a href="#" className="text-[#b8b8b8] text-sm hover:text-[#0084ff] transition-colors block">
-                          LinkedIn: AetherMind Research
-                        </a>
-                        <a href="#" className="text-[#b8b8b8] text-sm hover:text-[#0084ff] transition-colors block">
-                          GitHub: @aethermind
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Contact Form */}
-              <div className="bg-[rgba(255,255,255,0.05)] rounded-lg p-8">
-                <h3 className="text-2xl font-light mb-6">Send us a Message</h3>
-                <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium mb-2">First Name</label>
-                      <input
-                        type="text"
-                        className="w-full bg-[rgba(255,255,255,0.1)] border border-white/20 rounded-md px-4 py-3 text-white placeholder-[#888] focus:outline-none focus:border-[#0084ff] transition-colors"
-                        placeholder="John"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Last Name</label>
-                      <input
-                        type="text"
-                        className="w-full bg-[rgba(255,255,255,0.1)] border border-white/20 rounded-md px-4 py-3 text-white placeholder-[#888] focus:outline-none focus:border-[#0084ff] transition-colors"
-                        placeholder="Doe"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Email</label>
-                    <input
-                      type="email"
-                      className="w-full bg-[rgba(255,255,255,0.1)] border border-white/20 rounded-md px-4 py-3 text-white placeholder-[#888] focus:outline-none focus:border-[#0084ff] transition-colors"
-                      placeholder="john.doe@example.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Subject</label>
-                    <select className="w-full bg-[rgba(255,255,255,0.1)] border border-white/20 rounded-md px-4 py-3 text-white focus:outline-none focus:border-[#0084ff] transition-colors">
-                      <option value="">Select a topic</option>
-                      <option value="research">Research Collaboration</option>
-                      <option value="careers">Career Opportunities</option>
-                      <option value="general">General Inquiry</option>
-                      <option value="media">Media & Press</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Message</label>
-                    <textarea
-                      rows={5}
-                      className="w-full bg-[rgba(255,255,255,0.1)] border border-white/20 rounded-md px-4 py-3 text-white placeholder-[#888] focus:outline-none focus:border-[#0084ff] transition-colors resize-none"
-                      placeholder="Tell us about your inquiry..."
-                    ></textarea>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full bg-[#0084ff] text-white py-3 rounded-md font-medium hover:bg-[#0066cc] transition-colors"
-                  >
-                    Send Message
-                  </button>
-                </form>
-              </div>
             </div>
           </div>
         </div>
@@ -338,60 +253,89 @@ export default function JoinPage() {
       <footer className="relative z-10 bg-[rgba(10,10,10,0.98)] border-t border-white/10 py-16">
         <div className="max-w-[1400px] mx-auto px-[60px]">
           <div className="grid md:grid-cols-4 gap-12">
+            {/* Brand Section */}
             <div className="md:col-span-1">
-              <div className="text-xl mb-4 font-extralight font-sans">AetherMind</div>
+              <div className="text-xl mb-4 font-extralight font-sans tracking-wider">
+                AetherMind Epistemic AI
+              </div>
               <p className="text-[#b8b8b8] text-sm leading-relaxed mb-6">
-                Advancing machine learning through rigorous research and open collaboration.
+                Advancing machine learning through rigorous research and open
+                collaboration.
               </p>
             </div>
+
+            {/* Explore */}
             <div>
               <h4 className="text-white font-semibold mb-4">Explore</h4>
               <div className="space-y-3">
-                <Link href="/research" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/research"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   Research
                 </Link>
-                <Link href="/publications" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/publications"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   Publications
                 </Link>
-                <Link href="/people" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/people"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   People
                 </Link>
               </div>
             </div>
+
+            {/* Resources */}
             <div>
               <h4 className="text-white font-semibold mb-4">Resources</h4>
               <div className="space-y-3">
-                <Link href="/dataset" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/dataset"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   Datasets & Software
                 </Link>
-                <a
-                  href="#contact"
+                <Link
+                  href="/join#contact"
                   className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-                  }}
                 >
                   Contact
-                </a>
-                <Link href="/join" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                </Link>
+                <Link
+                  href="/join"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   Join Us
                 </Link>
               </div>
             </div>
+
+            {/* Contact */}
             <div>
               <h4 className="text-white font-semibold mb-4">Contact</h4>
               <div className="space-y-3">
-                <div className="text-[#b8b8b8] text-sm">info@aethermind.edu</div>
-                <div className="text-[#b8b8b8] text-sm">123 Research Ave, Kolkata, IN</div>
+                <div className="text-[#b8b8b8] text-sm">
+                  aethermind@university.edu
+                </div>
+                <div className="text-[#b8b8b8] text-sm">
+                  123 Research Ave, Kolkata, IN
+                </div>
               </div>
             </div>
           </div>
+
           <div className="border-t border-white/10 mt-12 pt-8">
-            <p className="text-[#888] text-sm text-center">© 2025 AetherMind Research Group. All rights reserved.</p>
+            <p className="text-[#888] text-sm text-center">
+              © 2025 AetherMind Epistemic AI Research Group. All rights
+              reserved.
+            </p>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }

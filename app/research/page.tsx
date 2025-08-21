@@ -181,37 +181,29 @@ export default function ResearchPage() {
             <div className="grid md:grid-cols-2 gap-8">
               {[
                 {
+                  title: "DNA Encoding & CNN–BiLSTM for Genomic Classification",
+                  status: "Active",
+                  description:
+                    "We proposed a memory-efficient DNA encoding scheme integrated into a CNN–BiLSTM hybrid, attaining 97.2% multiclass accuracy while cutting parameter count and memory use by 35% compared to one-hot baselines.",
+                },
+                {
+                  title: "CADET: Attention-Enhanced Essay Scoring Architecture",
+                  status: "Active",
+                  description:
+                    "Our team implemented CADET, a BiLSTM with multi-head attention that delivers state-of-the-art automated essay scoring with QWK 0.98, MSE 2.88, and R² 0.96 on the ASAP benchmark.",
+                },
+                {
+                  title: "Multi-Scale UNet with Mamba SSMs for Dehazing",
+                  status: "Active",
+                  description:
+                    "Our group engineered a UNet variant integrating Mamba state-space layers and Ghost Convolutions, reducing trainable parameters by 55% and reaching SOTA dehazing performance on RESIDE-6K with high cross-dataset generalization.",
+                },
+                {
                   title:
-                    "Efficient Neural Architecture Search via Progressive Pruning",
+                    "Parkinson’s Gait Analysis for Levodopa Level Prediction",
                   status: "Active",
-                  funding: "NSF Grant",
                   description:
-                    "Developing novel pruning techniques to reduce NAS computational overhead by 85% while maintaining performance.",
-                  team: ["Dr. S.K. Ghosh", "S. Bharati", "S. Mondal"],
-                },
-                {
-                  title: "Privacy-Preserving Federated Learning Framework",
-                  status: "Active",
-                  funding: "Industry Partnership",
-                  description:
-                    "Building secure collaborative learning systems with differential privacy guarantees.",
-                  team: ["Dr. S. Mondal", "S. Banerjee", "S. Das"],
-                },
-                {
-                  title: "Multimodal Medical Image Analysis Platform",
-                  status: "Clinical Trial",
-                  funding: "Medical Research Council",
-                  description:
-                    "AI-powered diagnostic system improving accuracy by 23% in real-world medical settings.",
-                  team: ["Dr. A. Mitra", "S. Mandal", "S. Das"],
-                },
-                {
-                  title: "Explainable AI for Financial Risk Assessment",
-                  status: "Deployment",
-                  funding: "Financial Services Partnership",
-                  description:
-                    "Interpretable models providing transparent decision-making for high-stakes financial applications.",
-                  team: ["Dr. S.K. Ghosh", "S. Das", "A. Mitra"],
+                    "Our team designed a deep time-series framework using spatiotemporal gait dynamics to infer dopaminergic response levels in Parkinson’s patients, enabling precision levodopa titration through predictive modeling.",
                 },
               ].map((project, index) => (
                 <div
@@ -223,9 +215,7 @@ export default function ResearchPage() {
                       className={`px-3 py-1 rounded-full text-sm ${
                         project.status === "Active"
                           ? "bg-[#0084ff]/20 text-[#0084ff]"
-                          : project.status === "Clinical Trial"
-                            ? "bg-green-500/20 text-green-400"
-                            : "bg-orange-500/20 text-orange-400"
+                          : "bg-green-500/20 text-green-400"
                       }`}
                     >
                       {project.status}
@@ -235,13 +225,9 @@ export default function ResearchPage() {
                   <h3 className="text-lg font-semibold group-hover:text-[#0084ff] transition-colors mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-[#888] text-sm mb-3">{project.funding}</p>
                   <p className="text-[#b8b8b8] text-sm leading-relaxed mb-4">
                     {project.description}
                   </p>
-                  <div className="text-xs text-[#888]">
-                    Team: {project.team.join(", ")}
-                  </div>
                 </div>
               ))}
             </div>
@@ -253,15 +239,18 @@ export default function ResearchPage() {
       <footer className="relative z-10 bg-[rgba(10,10,10,0.98)] border-t border-white/10 py-16">
         <div className="max-w-[1400px] mx-auto px-[60px]">
           <div className="grid md:grid-cols-4 gap-12">
+            {/* Brand Section */}
             <div className="md:col-span-1">
-              <div className="text-xl mb-4 font-sans font-extralight">
-                AetherMind
+              <div className="text-xl mb-4 font-extralight font-sans tracking-wider">
+                AetherMind Epistemic AI
               </div>
               <p className="text-[#b8b8b8] text-sm leading-relaxed mb-6">
                 Advancing machine learning through rigorous research and open
                 collaboration.
               </p>
             </div>
+
+            {/* Explore */}
             <div>
               <h4 className="text-white font-semibold mb-4">Explore</h4>
               <div className="space-y-3">
@@ -285,6 +274,8 @@ export default function ResearchPage() {
                 </Link>
               </div>
             </div>
+
+            {/* Resources */}
             <div>
               <h4 className="text-white font-semibold mb-4">Resources</h4>
               <div className="space-y-3">
@@ -308,6 +299,8 @@ export default function ResearchPage() {
                 </Link>
               </div>
             </div>
+
+            {/* Contact */}
             <div>
               <h4 className="text-white font-semibold mb-4">Contact</h4>
               <div className="space-y-3">
@@ -320,9 +313,11 @@ export default function ResearchPage() {
               </div>
             </div>
           </div>
+
           <div className="border-t border-white/10 mt-12 pt-8">
             <p className="text-[#888] text-sm text-center">
-              © 2025 AetherMind Research Group. All rights reserved.
+              © 2025 AetherMind Epistemic AI Research Group. All rights
+              reserved.
             </p>
           </div>
         </div>

@@ -1,51 +1,53 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { ArrowRight, Menu, X } from "lucide-react"
-import Link from "next/link"
-import { FlipWords } from "@/components/flip-words"
-import { AnimatedLogo } from "@/components/animated-logo"
+import { useEffect, useState } from "react";
+import { ArrowRight, Menu, X } from "lucide-react";
+import Link from "next/link";
+import { AnimatedLogo } from "@/components/animated-logo";
 
 export default function HomePage() {
-  const [mobileOpen, setMobileOpen] = useState(false)
-  const [loading, setLoading] = useState(true)
-
-  const words = ["Intelligence", "Learning", "Innovation", "Discovery"]
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setMobileOpen(false)
+    function onKey(e) {
+      if (e.key === "Escape") setMobileOpen(false);
     }
-    window.addEventListener("keydown", onKey)
-    return () => window.removeEventListener("keydown", onKey)
-  }, [])
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   // Loading animation
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000)
-    return () => clearTimeout(timer)
-  }, [])
+    const timer = setTimeout(() => setLoading(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Prevent body scroll when menu is open
   useEffect(() => {
     if (mobileOpen) {
-      document.body.style.overflow = "hidden"
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = ""
+      document.body.style.overflow = "";
     }
-  }, [mobileOpen])
+  }, [mobileOpen]);
 
   if (loading) {
     return (
       <div className="fixed inset-0 bg-[#0a0a0a] flex items-center justify-center z-50">
         <div className="text-center">
-          <div className="text-4xl font-extralight mb-4 animate-pulse tracking-wider font-sans">AetherMind</div>
-          <div className="text-sm text-[#b8b8b8] animate-fade-in" style={{ animationDelay: "0.5s" }}>
-            Machine Learning Research Group
+          <div className="text-4xl font-extralight mb-4 animate-pulse tracking-wider font-sans">
+            AetherMind
+          </div>
+          <div
+            className="text-sm text-[#b8b8b8] animate-fade-in"
+            style={{ animationDelay: "0.5s" }}
+          >
+            Aethermind Epistemic AI Research Group
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -78,7 +80,10 @@ export default function HomePage() {
             >
               Publications
             </Link>
-            <Link href="/people" className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white">
+            <Link
+              href="/people"
+              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
+            >
               People
             </Link>
             <Link
@@ -87,7 +92,10 @@ export default function HomePage() {
             >
               Datasets
             </Link>
-            <Link href="/join" className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white">
+            <Link
+              href="/join"
+              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
+            >
               Join
             </Link>
           </div>
@@ -109,7 +117,11 @@ export default function HomePage() {
               className="inline-flex items-center justify-center rounded-md p-2 text-white/80 hover:text-white hover:bg-white/5 transition"
               onClick={() => setMobileOpen((v) => !v)}
             >
-              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </nav>
@@ -174,36 +186,32 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section */}
-      <section className="min-h-screen pt-[120px] pb-20 relative">
-        <div className="content-wrapper max-w-[1400px] mx-auto px-[60px] flex justify-between items-center relative z-[2] min-h-[80vh]">
-          {/* Left Content */}
-          <div className="max-w-[800px] animate-fade-in-up">
-            <h1 className="text-[80px] font-extralight leading-[1.1] mb-8 tracking-[-2px] font-sans">
-              Advancing the
-              <br />
-              Future of{" "}
-              <FlipWords words={words} className="text-[80px] font-extralight tracking-[-2px] text-[#0084ff]" />
-            </h1>
-            <p className="text-lg leading-relaxed text-[#b8b8b8] mb-12 font-normal">
-              AetherMind is a cutting-edge machine learning research group pushing the boundaries
-              <br />
-              of artificial intelligence through innovative research and real-world applications.
-            </p>
-            <div className="flex gap-5 items-center">
-              <Link
-                href="/research"
-                className="flex items-center gap-2.5 bg-[#0084ff] text-white py-3.5 px-7 rounded-md text-base font-medium hover:bg-[#0066cc] hover:translate-x-0.5 transition-all duration-200"
-              >
-                Explore Research
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                href="/publications"
-                className="bg-transparent text-[#b8b8b8] py-3.5 px-7 text-base font-medium hover:text-white transition-colors duration-200"
-              >
-                View Publications
-              </Link>
-            </div>
+      <section className="min-h-screen pt-[120px] pb-20 relative flex items-center justify-center text-center">
+        <div className="content-wrapper max-w-[800px] mx-auto px-[60px] relative z-[2] animate-fade-in-up">
+          <h1 className="text-[80px] font-extralight leading-[1.1] mb-8 tracking-[-2px] font-sans">
+            Aethermind Epistemic AI
+            <br />
+          </h1>
+          <p className="text-lg leading-relaxed text-[#b8b8b8] mb-12 font-normal">
+            Our vision is to advance the frontier of artificial intelligence by
+            developing systems that not only process information but also
+            acquire, reason with, and validate knowledge.
+            <br />
+          </p>
+          <div className="flex gap-5 items-center justify-center">
+            <Link
+              href="/research"
+              className="flex items-center gap-2.5 bg-[#0084ff] text-white py-3.5 px-7 rounded-md text-base font-medium hover:bg-[#0066cc] hover:translate-x-0.5 transition-all duration-200"
+            >
+              Explore Research
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+            <Link
+              href="/publications"
+              className="bg-transparent text-[#b8b8b8] py-3.5 px-7 text-base font-medium hover:text-white transition-colors duration-200"
+            >
+              View Publications
+            </Link>
           </div>
         </div>
       </section>
@@ -212,16 +220,16 @@ export default function HomePage() {
         <div className="max-w-[1400px] mx-auto px-[60px]">
           <div className="flex justify-center gap-20 items-center animate-fade-in-up">
             <div className="text-center">
-              <div className="text-[64px] font-light leading-none mb-3 text-[#0084ff]">50+</div>
-              <div className="text-base text-[#b8b8b8] font-normal">Publications</div>
-            </div>
-            <div className="text-center">
-              <div className="text-[64px] font-light leading-none mb-3">15+</div>
-              <div className="text-base text-[#b8b8b8] font-normal">Active Projects</div>
-            </div>
-            <div className="text-center">
               <div className="text-[64px] font-light leading-none mb-3">8+</div>
-              <div className="text-base text-[#b8b8b8] font-normal">Team Members</div>
+              <div className="text-base text-[#b8b8b8] font-normal">
+                Active Projects
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="text-[64px] font-light leading-none mb-3">6</div>
+              <div className="text-base text-[#b8b8b8] font-normal">
+                Team Members
+              </div>
             </div>
           </div>
         </div>
@@ -231,22 +239,27 @@ export default function HomePage() {
         <div className="max-w-[1400px] mx-auto px-[60px]">
           <div className="text-center mb-16">
             <h2 className="text-[48px] font-extralight leading-[1.1] mb-6 tracking-[-1px] font-sans">
-              Featured Publications
+              Featured Publication
             </h2>
             <p className="text-lg text-[#b8b8b8] max-w-2xl mx-auto">
-              Discover our latest breakthroughs in machine learning and artificial intelligence research.
+              Discover our latest breakthrough in machine learning and
+              artificial intelligence research.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-[rgba(255,255,255,0.02)] border border-white/10 rounded-lg p-8 hover:bg-[rgba(255,255,255,0.04)] transition-all duration-300 hover:border-[#0084ff]/30">
-              <div className="text-sm text-[#0084ff] font-medium mb-3">Nature Machine Intelligence • 2024</div>
+          <div className="grid place-items-center">
+            <div className="bg-[rgba(255,255,255,0.02)] border border-white/10 rounded-lg p-8 hover:bg-[rgba(255,255,255,0.04)] transition-all duration-300 hover:border-[#0084ff]/30 w-full max-w-[600px]">
+              <div className="text-sm text-[#0084ff] font-medium mb-3">
+                IEEE CIACON 2025 • 2025
+              </div>
               <h3 className="text-xl font-medium mb-4 leading-relaxed">
-                Neural Architecture Search for Efficient Deep Learning Models
+                HCAT-Net for Ordinal EEG Emotion Classification
               </h3>
               <p className="text-[#b8b8b8] text-sm leading-relaxed mb-6">
-                We present a novel approach to automated neural architecture search that reduces computational overhead
-                by 70% while maintaining state-of-the-art performance across multiple benchmarks.
+                Our team designed HCAT-Net, a hybrid 1D ResNet–hierarchical
+                Transformer with Rotary Positional Embeddings and
+                cross-attention fusion, achieving 99.8% accuracy and 100%
+                ROC-AUC for ordinal EEG affective state decoding.
               </p>
               <div className="flex items-center gap-4">
                 <Link
@@ -256,66 +269,6 @@ export default function HomePage() {
                   Read Paper →
                 </Link>
                 <span className="text-[#666] text-xs">Cited 127 times</span>
-              </div>
-            </div>
-
-            <div className="bg-[rgba(255,255,255,0.02)] border border-white/10 rounded-lg p-8 hover:bg-[rgba(255,255,255,0.04)] transition-all duration-300 hover:border-[#0084ff]/30">
-              <div className="text-sm text-[#0084ff] font-medium mb-3">ICML • 2024</div>
-              <h3 className="text-xl font-medium mb-4 leading-relaxed">
-                Federated Learning with Differential Privacy Guarantees
-              </h3>
-              <p className="text-[#b8b8b8] text-sm leading-relaxed mb-6">
-                A comprehensive framework for privacy-preserving federated learning that achieves optimal
-                utility-privacy trade-offs in distributed machine learning scenarios.
-              </p>
-              <div className="flex items-center gap-4">
-                <Link
-                  href="/publications"
-                  className="text-[#0084ff] text-sm font-medium hover:text-white transition-colors"
-                >
-                  Read Paper →
-                </Link>
-                <span className="text-[#666] text-xs">Cited 89 times</span>
-              </div>
-            </div>
-
-            <div className="bg-[rgba(255,255,255,0.02)] border border-white/10 rounded-lg p-8 hover:bg-[rgba(255,255,255,0.04)] transition-all duration-300 hover:border-[#0084ff]/30">
-              <div className="text-sm text-[#0084ff] font-medium mb-3">NeurIPS • 2023</div>
-              <h3 className="text-xl font-medium mb-4 leading-relaxed">
-                Transformer Architectures for Multi-Modal Learning
-              </h3>
-              <p className="text-[#b8b8b8] text-sm leading-relaxed mb-6">
-                Novel transformer variants that effectively combine vision, language, and audio modalities for improved
-                performance on complex multi-modal tasks.
-              </p>
-              <div className="flex items-center gap-4">
-                <Link
-                  href="/publications"
-                  className="text-[#0084ff] text-sm font-medium hover:text-white transition-colors"
-                >
-                  Read Paper →
-                </Link>
-                <span className="text-[#666] text-xs">Cited 203 times</span>
-              </div>
-            </div>
-
-            <div className="bg-[rgba(255,255,255,0.02)] border border-white/10 rounded-lg p-8 hover:bg-[rgba(255,255,255,0.04)] transition-all duration-300 hover:border-[#0084ff]/30">
-              <div className="text-sm text-[#0084ff] font-medium mb-3">ICLR • 2023</div>
-              <h3 className="text-xl font-medium mb-4 leading-relaxed">
-                Continual Learning with Memory-Efficient Adaptation
-              </h3>
-              <p className="text-[#b8b8b8] text-sm leading-relaxed mb-6">
-                A memory-efficient approach to continual learning that prevents catastrophic forgetting while
-                maintaining scalability across diverse task sequences.
-              </p>
-              <div className="flex items-center gap-4">
-                <Link
-                  href="/publications"
-                  className="text-[#0084ff] text-sm font-medium hover:text-white transition-colors"
-                >
-                  Read Paper →
-                </Link>
-                <span className="text-[#666] text-xs">Cited 156 times</span>
               </div>
             </div>
           </div>
@@ -337,9 +290,12 @@ export default function HomePage() {
           <div className="grid md:grid-cols-4 gap-12">
             {/* Brand Section */}
             <div className="md:col-span-1">
-              <div className="text-xl mb-4 font-extralight font-sans tracking-wider">AetherMind</div>
+              <div className="text-xl mb-4 font-extralight font-sans tracking-wider">
+                AetherMind Epistemic AI
+              </div>
               <p className="text-[#b8b8b8] text-sm leading-relaxed mb-6">
-                Advancing machine learning through rigorous research and open collaboration.
+                Advancing machine learning through rigorous research and open
+                collaboration.
               </p>
             </div>
 
@@ -347,13 +303,22 @@ export default function HomePage() {
             <div>
               <h4 className="text-white font-semibold mb-4">Explore</h4>
               <div className="space-y-3">
-                <Link href="/research" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/research"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   Research
                 </Link>
-                <Link href="/publications" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/publications"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   Publications
                 </Link>
-                <Link href="/people" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/people"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   People
                 </Link>
               </div>
@@ -363,13 +328,22 @@ export default function HomePage() {
             <div>
               <h4 className="text-white font-semibold mb-4">Resources</h4>
               <div className="space-y-3">
-                <Link href="/dataset" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/dataset"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   Datasets & Software
                 </Link>
-                <Link href="/join#contact" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/join#contact"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   Contact
                 </Link>
-                <Link href="/join" className="block text-[#b8b8b8] hover:text-white transition-colors text-sm">
+                <Link
+                  href="/join"
+                  className="block text-[#b8b8b8] hover:text-white transition-colors text-sm"
+                >
                   Join Us
                 </Link>
               </div>
@@ -379,17 +353,24 @@ export default function HomePage() {
             <div>
               <h4 className="text-white font-semibold mb-4">Contact</h4>
               <div className="space-y-3">
-                <div className="text-[#b8b8b8] text-sm">aethermind@university.edu</div>
-                <div className="text-[#b8b8b8] text-sm">123 Research Ave, Kolkata, IN</div>
+                <div className="text-[#b8b8b8] text-sm">
+                  aethermind@university.edu
+                </div>
+                <div className="text-[#b8b8b8] text-sm">
+                  123 Research Ave, Kolkata, IN
+                </div>
               </div>
             </div>
           </div>
 
           <div className="border-t border-white/10 mt-12 pt-8">
-            <p className="text-[#888] text-sm text-center">© 2025 AetherMind Research Group. All rights reserved.</p>
+            <p className="text-[#888] text-sm text-center">
+              © 2025 AetherMind Epistemic AI Research Group. All rights
+              reserved.
+            </p>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }
