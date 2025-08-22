@@ -354,10 +354,11 @@ export default function HomePage() {
               <h4 className="text-white font-semibold mb-4">Contact</h4>
               <div className="space-y-3">
                 <div className="text-[#b8b8b8] text-sm">
-                  aethermind@university.edu
+                  aethermind.epistemic.ai@gmail.com
                 </div>
                 <div className="text-[#b8b8b8] text-sm">
-                  123 Research Ave, Kolkata, IN
+                  DG Block(Newtown), Action Area I, 1/2, Newtown, New Town,
+                  Chakpachuria, West Bengal 700156
                 </div>
               </div>
             </div>
