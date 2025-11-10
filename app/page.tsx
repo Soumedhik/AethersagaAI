@@ -10,7 +10,7 @@ export default function HomePage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    function onKey(e) {
+    function onKey(e: KeyboardEvent) {
       if (e.key === "Escape") setMobileOpen(false);
     }
     window.addEventListener("keydown", onKey);
@@ -37,13 +37,13 @@ export default function HomePage() {
       <div className="fixed inset-0 bg-[#0a0a0a] flex items-center justify-center z-50">
         <div className="text-center">
           <div className="text-4xl font-extralight mb-4 animate-pulse tracking-wider font-sans">
-            AetherMind
+            Aethersaga AI
           </div>
           <div
             className="text-sm text-[#b8b8b8] animate-fade-in"
             style={{ animationDelay: "0.5s" }}
           >
-            Aethermind Epistemic AI Research Group
+            Aethersaga AI Research Group
           </div>
         </div>
       </div>
@@ -189,7 +189,7 @@ export default function HomePage() {
       <section className="min-h-screen pt-[120px] pb-20 relative flex items-center justify-center text-center">
         <div className="content-wrapper max-w-[800px] mx-auto px-[60px] relative z-[2] animate-fade-in-up">
           <h1 className="text-[80px] font-extralight leading-[1.1] mb-8 tracking-[-2px] font-sans">
-            Aethermind Epistemic AI
+            Aethersaga AI
             <br />
           </h1>
           <p className="text-lg leading-relaxed text-[#b8b8b8] mb-12 font-normal">
@@ -291,7 +291,7 @@ export default function HomePage() {
             {/* Brand Section */}
             <div className="md:col-span-1">
               <div className="text-xl mb-4 font-extralight font-sans tracking-wider">
-                AetherMind Epistemic AI
+                Aethersaga AI
               </div>
               <p className="text-[#b8b8b8] text-sm leading-relaxed mb-6">
                 Advancing machine learning through rigorous research and open
@@ -354,7 +354,7 @@ export default function HomePage() {
               <h4 className="text-white font-semibold mb-4">Contact</h4>
               <div className="space-y-3">
                 <div className="text-[#b8b8b8] text-sm">
-                  aethermind.epistemic.ai@gmail.com
+                  aethersaga.ai@gmail.com
                 </div>
                 <div className="text-[#b8b8b8] text-sm">
                   DG Block(Newtown), Action Area I, 1/2, Newtown, New Town,
@@ -366,7 +366,7 @@ export default function HomePage() {
 
           <div className="border-t border-white/10 mt-12 pt-8">
             <p className="text-[#888] text-sm text-center">
-              © 2025 AetherMind Epistemic AI Research Group. All rights
+              © 2025 Aethersaga AI Research Group. All rights
               reserved.
             </p>
           </div>

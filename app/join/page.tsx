@@ -116,7 +116,7 @@ export default function JoinPage() {
         <div className="max-w-[1400px] mx-auto px-[60px]">
           <div className="text-center mb-16">
             <h1 className="text-6xl font-light mb-6 tracking-[-1px]">
-              Join AetherMind Epistemic AI
+              Join Aethersaga AI
             </h1>
             <p className="text-xl text-[#b8b8b8] max-w-3xl mx-auto leading-relaxed">
               Be part of cutting-edge research that shapes the future of
@@ -172,7 +172,7 @@ export default function JoinPage() {
           {/* Benefits */}
           <div className="mb-20">
             <h2 className="text-4xl font-light mb-12 text-center tracking-[-1px]">
-              Why Join AetherMind?
+              Why Join Aethersaga AI?
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {[
@@ -225,11 +225,11 @@ export default function JoinPage() {
             </p>
             <div className="flex flex-col md:flex-row gap-4 justify-center">
               <a
-                href="mailto:aethermind.epistemic.ai@gmail.com"
+                href="mailto:aethersaga.ai@gmail.com"
                 className="flex items-center gap-2 bg-[#0084ff] text-white py-3 px-6 rounded-md font-medium hover:bg-[#0066cc] transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                aethermind.epistemic.ai@gmail.com
+                aethersaga.ai@gmail.com
               </a>
               <a
                 href="/join#contact"
@@ -256,7 +256,7 @@ export default function JoinPage() {
             {/* Brand Section */}
             <div className="md:col-span-1">
               <div className="text-xl mb-4 font-extralight font-sans tracking-wider">
-                AetherMind Epistemic AI
+                Aethersaga AI
               </div>
               <p className="text-[#b8b8b8] text-sm leading-relaxed mb-6">
                 Advancing machine learning through rigorous research and open
@@ -319,7 +319,7 @@ export default function JoinPage() {
               <h4 className="text-white font-semibold mb-4">Contact</h4>
               <div className="space-y-3">
                 <div className="text-[#b8b8b8] text-sm">
-                  aethermind.epistemic.ai@gmail.com
+                  aethersaga.ai@gmail.com
                 </div>
                 <div className="text-[#b8b8b8] text-sm">
                   DG Block(Newtown), Action Area I, 1/2, Newtown, New Town,
@@ -331,7 +331,7 @@ export default function JoinPage() {
 
           <div className="border-t border-white/10 mt-12 pt-8">
             <p className="text-[#888] text-sm text-center">
-              © 2025 AetherMind Epistemic AI Research Group. All rights
+              © 2025 Aethersaga AI Research Group. All rights
               reserved.
             </p>
           </div>

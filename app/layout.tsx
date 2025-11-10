@@ -6,10 +6,9 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "AetherMind - Machine Learning Research Group",
+  title: "Aethersaga AI - Machine Learning Research Group",
   description:
-    "AetherMind is a cutting-edge machine learning research group pushing the boundaries of artificial intelligence through innovative research and real-world applications.",
-    generator: 'v0.app'
+    "Aethersaga AI is a cutting-edge machine learning research group pushing the boundaries of artificial intelligence through innovative research and real-world applications."
 }
 
 export default function RootLayout({

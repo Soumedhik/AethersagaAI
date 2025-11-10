@@ -114,7 +114,15 @@ export default function PublicationsPage() {
                   <span className="text-[#888] text-sm">2025</span>
                   <span className="text-[#888] text-sm">• 0 citations</span>
                 </div>
-                <ExternalLink className="w-4 h-4 text-[#b8b8b8] group-hover:text-[#0084ff] transition-colors cursor-pointer" />
+                <a
+                  href="https://ieeexplore.ieee.org/document/11189686"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#b8b8b8] hover:text-[#0084ff] transition-colors"
+                  aria-label="View publication on IEEE Xplore"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                </a>
               </div>
               <h3 className="text-lg font-semibold group-hover:text-[#0084ff] transition-colors mb-2">
                 HCAT-Net for Ordinal EEG Emotion Classification
@@ -141,7 +149,7 @@ export default function PublicationsPage() {
             {/* Brand Section */}
             <div className="md:col-span-1">
               <div className="text-xl mb-4 font-extralight font-sans tracking-wider">
-                AetherMind Epistemic AI
+                Aethersaga AI
               </div>
               <p className="text-[#b8b8b8] text-sm leading-relaxed mb-6">
                 Advancing machine learning through rigorous research and open
@@ -204,7 +212,7 @@ export default function PublicationsPage() {
               <h4 className="text-white font-semibold mb-4">Contact</h4>
               <div className="space-y-3">
                 <div className="text-[#b8b8b8] text-sm">
-                  aethermind.epistemic.ai@gmail.com
+                  aethersaga.ai@gmail.com
                 </div>
                 <div className="text-[#b8b8b8] text-sm">
                   DG Block(Newtown), Action Area I, 1/2, Newtown, New Town,
@@ -215,7 +223,7 @@ export default function PublicationsPage() {
           </div>
           <div className="border-t border-white/10 mt-12 pt-8">
             <p className="text-[#888] text-sm text-center">
-              © 2025 AetherMind Epistemic AI Research Group. All rights
+              © 2025 Aethersaga AI Research Group. All rights
               reserved.
             </p>
           </div>

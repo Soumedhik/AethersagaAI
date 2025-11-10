@@ -209,7 +209,7 @@ export default function PeoplePage() {
             <h1 className="text-6xl font-light mb-6 tracking-[-1px]">People</h1>
             <p className="text-xl text-[#b8b8b8] max-w-3xl mx-auto leading-relaxed">
               Meet the brilliant minds driving innovation in machine learning
-              research at AetherMind.
+              research at Aethersaga AI.
             </p>
           </div>
 
@@ -295,7 +295,7 @@ export default function PeoplePage() {
             {/* Brand Section */}
             <div className="md:col-span-1">
               <div className="text-xl mb-4 font-extralight font-sans tracking-wider">
-                AetherMind Epistemic AI
+                Aethersaga AI
               </div>
               <p className="text-[#b8b8b8] text-sm leading-relaxed mb-6">
                 Advancing machine learning through rigorous research and open
@@ -358,7 +358,7 @@ export default function PeoplePage() {
               <h4 className="text-white font-semibold mb-4">Contact</h4>
               <div className="space-y-3">
                 <div className="text-[#b8b8b8] text-sm">
-                  aethermind.epistemic.ai@gmail.com
+                  aethersaga.ai@gmail.com
                 </div>
                 <div className="text-[#b8b8b8] text-sm">
                   DG Block(Newtown), Action Area I, 1/2, Newtown, New Town,
@@ -370,7 +370,7 @@ export default function PeoplePage() {
 
           <div className="border-t border-white/10 mt-12 pt-8">
             <p className="text-[#888] text-sm text-center">
-              © 2025 AetherMind Epistemic AI Research Group. All rights
+              © 2025 Aethersaga AI Research Group. All rights
               reserved.
             </p>
           </div>

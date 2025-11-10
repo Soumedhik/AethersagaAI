@@ -44,7 +44,7 @@ export default function ContactPage() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-[rgba(10,10,10,0.8)] backdrop-blur-[10px] border-b border-white/10">
         <nav className="flex items-center justify-between py-5 px-[60px] max-w-[1400px] mx-auto">
           <Link href="/" className="text-xl font-bold tracking-wider">
-            AetherMind
+            Aethersaga AI
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -112,9 +112,9 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-2">Email</h3>
-                    <p className="text-[#b8b8b8] mb-1">General Inquiries: info@aethermind.edu</p>
-                    <p className="text-[#b8b8b8] mb-1">Research Collaborations: research@aethermind.edu</p>
-                    <p className="text-[#b8b8b8]">Career Opportunities: careers@aethermind.edu</p>
+                    <p className="text-[#b8b8b8] mb-1">General Inquiries: info@aethersaga.ai</p>
+                    <p className="text-[#b8b8b8] mb-1">Research Collaborations: research@aethersaga.ai</p>
+                    <p className="text-[#b8b8b8]">Career Opportunities: careers@aethersaga.ai</p>
                   </div>
                 </div>
 
@@ -124,7 +124,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-2">Address</h3>
-                    <p className="text-[#b8b8b8] mb-1">AetherMind Research Group</p>
+                    <p className="text-[#b8b8b8] mb-1">Aethersaga AI Research Group</p>
                     <p className="text-[#b8b8b8] mb-1">Department of Computer Science</p>
                     <p className="text-[#b8b8b8] mb-1">123 Research Avenue</p>
                     <p className="text-[#b8b8b8]">Kolkata, West Bengal 700001, India</p>
@@ -293,7 +293,7 @@ export default function ContactPage() {
         <div className="max-w-[1400px] mx-auto px-[60px]">
           <div className="grid md:grid-cols-4 gap-12">
             <div className="md:col-span-1">
-              <div className="text-xl font-bold mb-4">AetherMind</div>
+              <div className="text-xl font-bold mb-4">Aethersaga AI</div>
               <p className="text-[#b8b8b8] text-sm leading-relaxed mb-6">
                 Advancing machine learning through rigorous research and open collaboration.
               </p>
@@ -329,13 +329,13 @@ export default function ContactPage() {
             <div>
               <h4 className="text-white font-semibold mb-4">Contact</h4>
               <div className="space-y-3">
-                <div className="text-[#b8b8b8] text-sm">aethermind@university.edu</div>
+                <div className="text-[#b8b8b8] text-sm">aethersaga@university.edu</div>
                 <div className="text-[#b8b8b8] text-sm">123 Research Ave, Kolkata, IN</div>
               </div>
             </div>
           </div>
           <div className="border-t border-white/10 mt-12 pt-8">
-            <p className="text-[#888] text-sm text-center">© 2025 AetherMind Research Group. All rights reserved.</p>
+            <p className="text-[#888] text-sm text-center">© 2025 Aethersaga AI Research Group. All rights reserved.</p>
           </div>
         </div>
       </footer>
