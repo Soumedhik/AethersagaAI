@@ -94,7 +94,7 @@ export default function ContactPage() {
       <main className="pt-[120px] pb-20 relative z-10">
         <div className="max-w-[1400px] mx-auto px-[60px]">
           <div className="text-center mb-16">
-            <h1 className="text-6xl font-light mb-6 tracking-[-1px]">Contact Us</h1>
+            <h1 className="text-6xl font-light mb-6 tracking-[-1px] font-serif">Contact Us</h1>
             <p className="text-xl text-[#b8b8b8] max-w-3xl mx-auto leading-relaxed">
               Get in touch with our research team for collaborations, inquiries, or general information.
             </p>

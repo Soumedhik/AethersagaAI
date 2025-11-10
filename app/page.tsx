@@ -186,32 +186,99 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section */}
-      <section className="min-h-screen pt-[120px] pb-20 relative flex items-center justify-center text-center">
-        <div className="content-wrapper max-w-[800px] mx-auto px-[60px] relative z-[2] animate-fade-in-up">
-          <h1 className="text-[80px] font-extralight leading-[1.1] mb-8 tracking-[-2px] font-sans">
-            Aethersaga AI
-            <br />
-          </h1>
-          <p className="text-lg leading-relaxed text-[#b8b8b8] mb-12 font-normal">
-            Our vision is to advance the frontier of artificial intelligence by
-            developing systems that not only process information but also
-            acquire, reason with, and validate knowledge.
-            <br />
-          </p>
-          <div className="flex gap-5 items-center justify-center">
+      <section className="min-h-screen pt-[120px] pb-20 relative flex items-center justify-center text-center overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Floating particles */}
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-[#0084ff]/30 rounded-full animate-pulse" style={{ animationDelay: '0s' }} />
+          <div className="absolute top-1/3 right-1/4 w-1.5 h-1.5 bg-[#0066cc]/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute bottom-1/3 left-1/3 w-1 h-1 bg-[#0084ff]/50 rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+          <div className="absolute top-1/2 right-1/3 w-2.5 h-2.5 bg-[#0066cc]/30 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
+        </div>
+
+        <div className="content-wrapper max-w-[1000px] mx-auto px-[60px] relative z-[2]">
+          {/* Enhanced main title with gradient and animations */}
+          <div className="mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <h1 className="relative">
+              {/* Gradient text effect */}
+              <span className="block text-[140px] font-extralight leading-[0.9] tracking-[-4px] font-serif bg-gradient-to-r from-white via-[#0084ff] to-white bg-clip-text text-transparent animate-gradient-x">
+                Aethersaga
+              </span>
+
+              {/* Animated underline */}
+              <div className="relative mt-2">
+                <div className="h-1 bg-gradient-to-r from-transparent via-[#0084ff] to-transparent rounded-full animate-pulse" />
+                <div className="absolute inset-0 h-1 bg-gradient-to-r from-[#0084ff]/50 to-[#0066cc]/50 rounded-full blur-sm animate-pulse" />
+              </div>
+            </h1>
+          </div>
+
+          {/* Enhanced subtitle */}
+          <div className="mb-4 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+            <h2 className="text-[48px] font-light leading-[1.1] tracking-[-1px] font-serif text-[#0084ff] relative">
+              AI Research Group
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 text-[48px] font-light leading-[1.1] tracking-[-1px] font-serif text-[#0084ff] blur-sm opacity-50 animate-pulse">
+                AI Research Group
+              </div>
+            </h2>
+          </div>
+
+          {/* Enhanced description with better typography */}
+          <div className="mb-12 animate-fade-in-up relative" style={{ animationDelay: '1s' }}>
+            <p className="text-xl leading-relaxed text-[#b8b8b8] font-light max-w-[700px] mx-auto relative z-10">
+              <span className="relative z-10">
+                Our vision is to advance the frontier of artificial intelligence by
+                developing systems that not only process information but also
+                <span className="text-white font-medium"> acquire, reason with, and validate knowledge</span>.
+              </span>
+            </p>
+
+            {/* Background text effect */}
+            <div className="absolute inset-0 text-xl leading-relaxed text-[#0084ff]/10 font-light blur-sm transform scale-105 flex items-center justify-center">
+              <span>
+                Our vision is to advance the frontier of artificial intelligence by
+                developing systems that not only process information but also
+                acquire, reason with, and validate knowledge.
+              </span>
+            </div>
+          </div>
+
+          {/* Enhanced call-to-action buttons */}
+          <div className="flex gap-6 items-center justify-center animate-fade-in-up" style={{ animationDelay: '1.4s' }}>
             <Link
               href="/research"
-              className="flex items-center gap-2.5 bg-[#0084ff] text-white py-3.5 px-7 rounded-md text-base font-medium hover:bg-[#0066cc] hover:translate-x-0.5 transition-all duration-200"
+              className="group relative flex items-center gap-3 bg-gradient-to-r from-[#0084ff] to-[#0066cc] text-white py-4 px-8 rounded-lg text-lg font-medium hover:from-[#0066cc] hover:to-[#0055aa] hover:scale-105 hover:shadow-2xl hover:shadow-[#0084ff]/25 transition-all duration-300 overflow-hidden"
             >
-              Explore Research
-              <ArrowRight className="w-5 h-5" />
+              {/* Button background effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+              <span className="relative z-10">Explore Research</span>
+              <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
+
+              {/* Animated border */}
+              <div className="absolute inset-0 rounded-lg border border-white/20 group-hover:border-white/40 transition-colors duration-300" />
             </Link>
+
             <Link
               href="/publications"
-              className="bg-transparent text-[#b8b8b8] py-3.5 px-7 text-base font-medium hover:text-white transition-colors duration-200"
+              className="group relative bg-transparent border-2 border-[#0084ff]/50 text-[#0084ff] py-4 px-8 rounded-lg text-lg font-medium hover:bg-[#0084ff]/10 hover:border-[#0084ff] hover:text-white hover:scale-105 transition-all duration-300 overflow-hidden"
             >
-              View Publications
+              {/* Hover background effect */}
+              <div className="absolute inset-0 bg-[#0084ff]/0 group-hover:bg-[#0084ff]/10 transition-colors duration-300" />
+
+              <span className="relative z-10">View Publications</span>
+
+              {/* Animated border glow */}
+              <div className="absolute inset-0 rounded-lg border border-transparent group-hover:border-[#0084ff]/50 group-hover:shadow-lg group-hover:shadow-[#0084ff]/20 transition-all duration-300" />
             </Link>
+          </div>
+
+          {/* Scroll indicator */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div className="w-6 h-10 border-2 border-[#0084ff]/50 rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-[#0084ff] rounded-full mt-2 animate-pulse"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -238,7 +305,7 @@ export default function HomePage() {
       <section className="py-20 relative z-10">
         <div className="max-w-[1400px] mx-auto px-[60px]">
           <div className="text-center mb-16">
-            <h2 className="text-[48px] font-extralight leading-[1.1] mb-6 tracking-[-1px] font-sans">
+            <h2 className="text-[48px] font-extralight leading-[1.1] mb-6 tracking-[-1px] font-serif">
               Featured Publication
             </h2>
             <p className="text-lg text-[#b8b8b8] max-w-2xl mx-auto">

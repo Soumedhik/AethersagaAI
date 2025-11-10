@@ -1,9 +1,19 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { IBM_Plex_Sans, IBM_Plex_Serif } from "next/font/google"
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-ibm-plex-sans",
+})
+
+const ibmPlexSerif = IBM_Plex_Serif({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-ibm-plex-serif",
+})
 
 export const metadata: Metadata = {
   title: "Aethersaga AI - Machine Learning Research Group",
@@ -17,8 +27,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning={true}>
+      <body className={`${ibmPlexSans.variable} ${ibmPlexSerif.variable} font-sans relative`}>
+        <div className="relative z-10">
+          {children}
+        </div>
+      </body>
     </html>
   )
 }

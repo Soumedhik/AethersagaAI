@@ -94,7 +94,7 @@ export default function ResearchPage() {
       <main className="pt-[120px] pb-20 relative z-10">
         <div className="max-w-[1400px] mx-auto px-[60px]">
           <div className="text-center mb-16">
-            <h1 className="text-6xl font-light mb-6 tracking-[-1px]">
+            <h1 className="text-6xl font-light mb-6 tracking-[-1px] font-serif">
               Research
             </h1>
             <p className="text-xl text-[#b8b8b8] max-w-3xl mx-auto leading-relaxed">
