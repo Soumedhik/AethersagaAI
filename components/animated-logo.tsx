@@ -123,7 +123,6 @@ export function AnimatedLogo() {
           <>
             <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#0084ff] rounded-full animate-ping" />
             <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-[#0066cc] rounded-full animate-pulse" />
-            <div className="absolute top-1/2 -right-2 w-1 h-1 bg-[#0084ff] rounded-full animate-bounce" />
           </>
         )}
       </div>
