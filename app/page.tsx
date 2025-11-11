@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import { ArrowRight, Menu, X } from "lucide-react";
@@ -6,16 +6,7 @@ import Link from "next/link";
 import { AnimatedLogo } from "@/components/animated-logo";
 
 export default function HomePage() {
-  const [mobileOpen, setMobileOpen] = useState(false);
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setMobileOpen(false);
-    }
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
 
   // Loading animation
   useEffect(() => {
@@ -23,24 +14,18 @@ export default function HomePage() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Prevent body scroll when menu is open
-  useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-  }, [mobileOpen]);
-
   if (loading) {
     return (
       <div className="fixed inset-0 bg-[#0a0a0a] flex items-center justify-center z-50">
         <div className="text-center">
-          <div className="text-4xl font-extralight mb-4 animate-pulse tracking-wider font-sans">
+          <div className="mb-8">
+            <AnimatedLogo />
+          </div>
+          <div className="text-4xl font-extralight mb-4 animate-pulse tracking-wider font-sans text-white">
             Aethersaga AI
           </div>
           <div
-            className="text-sm text-[#b8b8b8] animate-fade-in"
+            className="text-sm text-white animate-fade-in"
             style={{ animationDelay: "0.5s" }}
           >
             Aethersaga AI Research Group
@@ -62,131 +47,8 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[rgba(10,10,10,0.7)] via-[rgba(10,10,10,0.8)] to-[rgba(10,10,10,0.9)]" />
       </div>
 
-      {/* Fixed Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[rgba(10,10,10,0.8)] backdrop-blur-[10px] border-b border-white/10">
-        <nav className="flex items-center justify-between py-5 px-[60px] max-w-[1400px] mx-auto">
-          <AnimatedLogo />
-
-          <div className="hidden md:flex items-center gap-8">
-            <Link
-              href="/research"
-              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
-            >
-              Research
-            </Link>
-            <Link
-              href="/publications"
-              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
-            >
-              Publications
-            </Link>
-            <Link
-              href="/people"
-              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
-            >
-              People
-            </Link>
-            <Link
-              href="/dataset"
-              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
-            >
-              Datasets
-            </Link>
-            <Link
-              href="/join"
-              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
-            >
-              Join
-            </Link>
-          </div>
-
-          <div className="hidden md:flex items-center gap-6">
-            <Link
-              href="/join#contact"
-              className="flex items-center gap-2 bg-[#0084ff] text-white py-2.5 px-5 rounded-md text-[15px] font-medium hover:bg-[#0066cc] hover:translate-x-0.5 transition-all duration-200"
-            >
-              Contact Us
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          {/* Mobile: Hamburger */}
-          <div className="md:hidden flex items-center gap-3">
-            <button
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              className="inline-flex items-center justify-center rounded-md p-2 text-white/80 hover:text-white hover:bg-white/5 transition"
-              onClick={() => setMobileOpen((v) => !v)}
-            >
-              {mobileOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
-        </nav>
-
-        {/* Mobile Panel */}
-        <div
-          className={`md:hidden absolute left-0 right-0 top-full border-b border-white/10 bg-[rgba(10,10,10,0.95)] backdrop-blur-md transition-all duration-300 ${
-            mobileOpen
-              ? "opacity-100 translate-y-0 pointer-events-auto"
-              : "opacity-0 -translate-y-2 pointer-events-none"
-          }`}
-        >
-          <div className="px-6 py-4 space-y-2">
-            <Link
-              href="/research"
-              className="block py-3 text-[16px] text-[#e6e6e6] hover:text-white transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              Research
-            </Link>
-            <Link
-              href="/publications"
-              className="block py-3 text-[16px] text-[#e6e6e6] hover:text-white transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              Publications
-            </Link>
-            <Link
-              href="/people"
-              className="block py-3 text-[16px] text-[#e6e6e6] hover:text-white transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              People
-            </Link>
-            <Link
-              href="/dataset"
-              className="block py-3 text-[16px] text-[#e6e6e6] hover:text-white transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              Datasets
-            </Link>
-            <Link
-              href="/join"
-              className="block py-3 text-[16px] text-[#e6e6e6] hover:text-white transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              Join
-            </Link>
-
-            <div className="h-px bg-white/10 my-2" />
-
-            <Link
-              href="/join#contact"
-              className="w-full flex items-center justify-center gap-2 bg-[#0084ff] text-white py-3 rounded-md text-[15px] font-medium hover:bg-[#0066cc] transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              Contact Us
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </header>
-
       {/* Hero Section */}
-      <section className="min-h-screen pt-[120px] pb-20 relative flex items-center justify-center text-center overflow-hidden">
+      <section className="min-h-screen pt-[100px] sm:pt-[120px] pb-20 relative flex items-center justify-center text-center overflow-hidden">
         {/* Enhanced animated background elements */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Floating geometric shapes */}
@@ -207,21 +69,21 @@ export default function HomePage() {
           <div className="absolute bottom-1/6 right-1/6 w-96 h-96 bg-gradient-to-l from-[#0066cc]/3 to-transparent rounded-full blur-3xl animate-pulse opacity-40" style={{ animationDelay: '3s' }} />
         </div>
 
-        <div className="content-wrapper max-w-[1000px] mx-auto px-[60px] relative z-[2]">
+        <div className="content-wrapper max-w-[1000px] mx-auto px-4 sm:px-6 md:px-8 lg:px-15 xl:px-16 relative z-[2]">
           {/* Enhanced main title with advanced gradient and animations */}
           <div className="mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <h1 className="relative">
               {/* Multi-layer gradient text effect */}
-              <span className="block text-[140px] font-extralight leading-[0.9] tracking-[-4px] font-serif bg-gradient-to-r from-white via-[#0084ff] via-[#0066cc] to-white bg-clip-text text-transparent animate-gradient-x relative">
+              <span className="block text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[140px] font-extralight leading-[1.3] tracking-[-4px] font-sans bg-gradient-to-r from-white via-[#0084ff] via-[#0066cc] to-white bg-clip-text text-transparent animate-gradient-x relative">
                 Aethersaga
                 {/* Text shadow effect */}
-                <span className="absolute inset-0 text-[140px] font-extralight leading-[0.9] tracking-[-4px] font-serif text-[#0084ff]/20 blur-sm animate-pulse">
+                <span className="absolute inset-0 text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[140px] font-extralight leading-[1.3] tracking-[-4px] font-sans text-[#0084ff]/20 blur-sm animate-pulse">
                   Aethersaga
                 </span>
               </span>
 
               {/* Enhanced animated underline with multiple layers */}
-              <div className="relative mt-4">
+              <div className="relative mt-8">
                 <div className="h-1.5 bg-gradient-to-r from-transparent via-[#0084ff] via-[#0066cc] to-transparent rounded-full animate-pulse relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer rounded-full" />
                 </div>
@@ -233,13 +95,13 @@ export default function HomePage() {
 
           {/* Enhanced subtitle with glow effects */}
           <div className="mb-4 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-            <h2 className="text-[48px] font-light leading-[1.1] tracking-[-1px] font-serif text-[#0084ff] relative">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[48px] font-light leading-[1.1] tracking-[-1px] font-sans text-[#0084ff] relative">
               AI Research Group
               {/* Enhanced glow effect */}
-              <div className="absolute inset-0 text-[48px] font-light leading-[1.1] tracking-[-1px] font-serif text-[#0084ff] blur-sm opacity-60 animate-pulse">
+              <div className="absolute inset-0 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[48px] font-light leading-[1.1] tracking-[-1px] font-sans text-[#0084ff] blur-sm opacity-60 animate-pulse">
                 AI Research Group
               </div>
-              <div className="absolute inset-0 text-[48px] font-light leading-[1.1] tracking-[-1px] font-serif text-[#0066cc] blur-md opacity-30 animate-pulse" style={{ animationDelay: '1s' }}>
+              <div className="absolute inset-0 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[48px] font-light leading-[1.1] tracking-[-1px] font-sans text-[#0066cc] blur-md opacity-30 animate-pulse" style={{ animationDelay: '1s' }}>
                 AI Research Group
               </div>
             </h2>
@@ -263,7 +125,7 @@ export default function HomePage() {
               <div className="absolute inset-0 text-xl leading-relaxed text-[#0084ff]/8 font-light blur-sm transform scale-105 flex items-center justify-center -z-10">
                 <span>
                   Our vision is to advance the frontier of artificial intelligence by
-                  developing systems that not only process information but also
+                  developing systems that not only process information but also{' '}
                   acquire, reason with, and validate knowledge.
                 </span>
               </div>
@@ -271,7 +133,7 @@ export default function HomePage() {
           </div>
 
           {/* Enhanced call-to-action buttons with advanced effects */}
-          <div className="flex gap-6 items-center justify-center animate-fade-in-up" style={{ animationDelay: '1.4s' }}>
+          <div className="flex flex-col sm:flex-row gap-6 items-center justify-center animate-fade-in-up" style={{ animationDelay: '1.4s' }}>
             <Link
               href="/research"
               className="group relative flex items-center gap-3 bg-gradient-to-r from-[#0084ff] via-[#0066cc] to-[#0055aa] text-white py-4 px-8 rounded-xl text-lg font-medium hover:scale-105 hover:shadow-2xl hover:shadow-[#0084ff]/30 transition-all duration-500 overflow-hidden"
@@ -324,14 +186,14 @@ export default function HomePage() {
       </section>
 
       <section className="py-24 relative z-10 bg-gradient-to-b from-[rgba(10,10,10,0.3)] to-[rgba(10,10,10,0.6)] border-y border-white/5">
-        <div className="max-w-[1400px] mx-auto px-[60px]">
-          <div className="flex justify-center gap-20 items-center animate-fade-in-up">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-15 xl:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20 items-center justify-items-center animate-fade-in-up">
             <div className="group text-center relative">
               {/* Card background effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#0084ff]/5 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="relative bg-[rgba(255,255,255,0.02)] backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-[#0084ff]/30 hover:bg-[rgba(255,255,255,0.05)] transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-[#0084ff]/10">
-                <div className="text-[72px] font-light leading-none mb-4 bg-gradient-to-r from-white to-[#0084ff] bg-clip-text text-transparent group-hover:from-[#0084ff] group-hover:to-white transition-all duration-500">
+                <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[72px] font-light leading-none mb-4 bg-gradient-to-r from-white to-[#0084ff] bg-clip-text text-transparent group-hover:from-[#0084ff] group-hover:to-white transition-all duration-500">
                   8+
                 </div>
                 <div className="text-lg text-[#b8b8b8] font-normal group-hover:text-white transition-colors duration-300">
@@ -347,7 +209,7 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-br from-[#0066cc]/5 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="relative bg-[rgba(255,255,255,0.02)] backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-[#0066cc]/30 hover:bg-[rgba(255,255,255,0.05)] transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-[#0066cc]/10">
-                <div className="text-[72px] font-light leading-none mb-4 bg-gradient-to-r from-white to-[#0066cc] bg-clip-text text-transparent group-hover:from-[#0066cc] group-hover:to-white transition-all duration-500">
+                <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[72px] font-light leading-none mb-4 bg-gradient-to-r from-white to-[#0066cc] bg-clip-text text-transparent group-hover:from-[#0066cc] group-hover:to-white transition-all duration-500">
                   6
                 </div>
                 <div className="text-lg text-[#b8b8b8] font-normal group-hover:text-white transition-colors duration-300">
@@ -362,9 +224,9 @@ export default function HomePage() {
       </section>
 
       <section className="py-24 relative z-10">
-        <div className="max-w-[1400px] mx-auto px-[60px]">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-15 xl:px-16">
           <div className="text-center mb-20">
-            <h2 className="text-[52px] font-extralight leading-[1.1] mb-6 tracking-[-1px] font-serif bg-gradient-to-r from-white to-[#0084ff] bg-clip-text text-transparent">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[52px] font-extralight leading-[1.1] mb-6 tracking-[-1px] font-sans bg-gradient-to-r from-white to-[#0084ff] bg-clip-text text-transparent">
               Featured Publication
             </h2>
             <p className="text-xl text-[#b8b8b8] max-w-3xl mx-auto leading-relaxed">
@@ -387,7 +249,7 @@ export default function HomePage() {
                 <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#0084ff]/20 to-[#0066cc]/20 border border-[#0084ff]/30 rounded-full px-4 py-2 mb-6">
                   <div className="w-2 h-2 bg-[#0084ff] rounded-full animate-pulse"></div>
                   <span className="text-sm text-[#0084ff] font-medium">
-                    IEEE CIACON 2025 â€¢ 2025
+                    IEEE CIACON 2025 • 2025
                   </span>
                 </div>
 
@@ -398,7 +260,7 @@ export default function HomePage() {
 
                 {/* Description */}
                 <p className="text-[#b8b8b8] text-base leading-relaxed mb-8 group-hover:text-white/90 transition-colors duration-300">
-                  Our team designed HCAT-Net, a hybrid 1D ResNetâ€“hierarchical
+                  Our team designed HCAT-Net, a hybrid 1D ResNet–hierarchical
                   Transformer with Rotary Positional Embeddings and
                   cross-attention fusion, achieving <span className="text-[#0084ff] font-semibold">99.8% accuracy</span> and <span className="text-[#0066cc] font-semibold">100%
                   ROC-AUC</span> for ordinal EEG affective state decoding.
@@ -444,7 +306,7 @@ export default function HomePage() {
       </section>
 
       <footer className="relative z-10 bg-gradient-to-b from-[rgba(10,10,10,0.95)] to-[rgba(10,10,10,0.98)] border-t border-white/10 py-20">
-        <div className="max-w-[1400px] mx-auto px-[60px]">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-15 xl:px-16">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             {/* Brand Section */}
             <div className="md:col-span-1">
@@ -540,7 +402,7 @@ export default function HomePage() {
           <div className="border-t border-white/10 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <div className="text-[#b8b8b8] text-sm">
-                Â© 2025 Aethersaga AI Research Group. All rights reserved.
+                © 2025 Aethersaga AI Research Group. All rights reserved.
               </div>
               <div className="flex gap-6 text-sm">
                 <span className="text-[#b8b8b8] hover:text-white transition-colors cursor-pointer">Privacy</span>

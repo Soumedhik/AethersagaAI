@@ -38,8 +38,8 @@ Aethersaga AI is a cutting-edge machine learning research group dedicated to adv
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/mandalfy/aethermind-research.git
-cd aethermind-research
+git clone https://github.com/mandalfy/aethersaga-research.git
+cd aethersaga-research
 ```
 
 2. Install dependencies:

@@ -6,7 +6,6 @@ import Link from "next/link";
 import { AnimatedLogo } from "@/components/animated-logo";
 
 export default function ResearchPage() {
-  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden relative">
@@ -26,72 +25,8 @@ export default function ResearchPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[rgba(10,10,10,0.8)] via-[rgba(10,10,10,0.9)] to-[rgba(10,10,10,0.95)]" />
       </div>
 
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[rgba(10,10,10,0.8)] backdrop-blur-[10px] border-b border-white/10">
-        <nav className="flex items-center justify-between py-5 px-[60px] max-w-[1400px] mx-auto">
-          <AnimatedLogo />
-
-          <div className="hidden md:flex items-center gap-8">
-            <Link
-              href="/research"
-              className="text-[15px] transition-colors duration-200 text-[#0084ff]"
-            >
-              Research
-            </Link>
-            <Link
-              href="/publications"
-              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
-            >
-              Publications
-            </Link>
-            <Link
-              href="/people"
-              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
-            >
-              People
-            </Link>
-            <Link
-              href="/dataset"
-              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
-            >
-              Datasets
-            </Link>
-            <Link
-              href="/join"
-              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
-            >
-              Join
-            </Link>
-          </div>
-
-          <div className="hidden md:flex items-center gap-6">
-            <Link
-              href="/join#contact"
-              className="flex items-center gap-2 bg-[#0084ff] text-white py-2.5 px-5 rounded-md text-[15px] font-medium hover:bg-[#0066cc] hover:translate-x-0.5 transition-all duration-200"
-            >
-              Contact Us
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="md:hidden flex items-center gap-3">
-            <button
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              className="inline-flex items-center justify-center rounded-md p-2 text-white/80 hover:text-white hover:bg-white/5 transition"
-              onClick={() => setMobileOpen((v) => !v)}
-            >
-              {mobileOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
-        </nav>
-      </header>
-
       {/* Research Content */}
-      <main className="pt-[120px] pb-20 relative z-10">
+      <main className="pt-[100px] sm:pt-[120px] pb-20 relative z-10">
         {/* Enhanced Hero Section */}
         <section className="min-h-[60vh] flex items-center justify-center text-center overflow-hidden relative mb-20">
           {/* Enhanced animated background elements */}
@@ -113,7 +48,7 @@ export default function ResearchPage() {
             <div className="absolute bottom-1/6 right-1/6 w-64 h-64 bg-gradient-to-l from-[#0066cc]/3 to-transparent rounded-full blur-3xl animate-pulse opacity-40" style={{ animationDelay: '3s' }} />
           </div>
 
-          <div className="content-wrapper max-w-[1200px] mx-auto px-[60px] relative z-[2]">
+          <div className="content-wrapper max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 lg:px-15 xl:px-16 relative z-[2]">
             {/* Enhanced main title with advanced gradient and animations */}
             <div className="mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               <h1 className="relative">
@@ -161,7 +96,7 @@ export default function ResearchPage() {
           </div>
         </section>
 
-        <div className="max-w-[1400px] mx-auto px-[60px]">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-15 xl:px-16">
 
           {/* Research Areas */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
@@ -330,14 +265,14 @@ export default function ResearchPage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-black/40 backdrop-blur-md border-t border-white/10 py-16 px-[60px]">
+      <footer className="bg-black/40 backdrop-blur-md border-t border-white/10 py-16 px-4 sm:px-6 md:px-8 lg:px-15 xl:px-16">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {/* Company Info */}
             <div className="lg:col-span-2">
               <div className="flex items-center gap-3 mb-6">
                 <AnimatedLogo />
-                <span className="text-2xl font-bold text-white">AetherMind Research</span>
+                <span className="text-2xl font-bold text-white">Aethersaga Research</span>
               </div>
               <p className="text-[#b8b8b8] text-base leading-relaxed mb-6 max-w-md">
                 Pioneering the future of AI through groundbreaking research and innovation.
@@ -403,7 +338,7 @@ export default function ResearchPage() {
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  <span className="text-sm">contact@aethermind.ai</span>
+                  <span className="text-sm">contact@aethersaga.ai</span>
                 </div>
                 <div className="flex items-center gap-3 text-[#b8b8b8]">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -426,7 +361,7 @@ export default function ResearchPage() {
           <div className="border-t border-white/10 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-[#b8b8b8] text-sm">
-                © 2024 AetherMind Research. All rights reserved.
+                © 2024 Aethersaga Research. All rights reserved.
               </p>
               <div className="flex gap-6 text-sm">
                 <Link href="#" className="text-[#b8b8b8] hover:text-white transition-colors duration-200">Privacy Policy</Link>

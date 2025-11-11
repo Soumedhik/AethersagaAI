@@ -8,7 +8,6 @@ import Link from "next/link"
 import { AnimatedLogo } from "@/components/animated-logo"
 
 export default function ContactPage() {
-  const [mobileOpen, setMobileOpen] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,28 +16,11 @@ export default function ContactPage() {
   })
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setMobileOpen(false)
-    }
-    window.addEventListener("keydown", onKey)
-    return () => window.removeEventListener("keydown", onKey)
-  }, [])
-
   // Loading animation
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2000)
     return () => clearTimeout(timer)
   }, [])
-
-  // Prevent body scroll when menu is open
-  useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = ""
-    }
-  }, [mobileOpen])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -57,11 +39,14 @@ export default function ContactPage() {
     return (
       <div className="fixed inset-0 bg-[#0a0a0a] flex items-center justify-center z-50">
         <div className="text-center">
-          <div className="text-4xl font-extralight mb-4 animate-pulse tracking-wider font-sans">
+          <div className="mb-8">
+            <AnimatedLogo />
+          </div>
+          <div className="text-4xl font-extralight mb-4 animate-pulse tracking-wider font-sans text-white">
             Aethersaga AI
           </div>
           <div
-            className="text-sm text-[#b8b8b8] animate-fade-in"
+            className="text-sm text-white animate-fade-in"
             style={{ animationDelay: "0.5s" }}
           >
             Aethersaga AI Research Group
@@ -83,131 +68,8 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[rgba(10,10,10,0.7)] via-[rgba(10,10,10,0.8)] to-[rgba(10,10,10,0.9)]" />
       </div>
 
-      {/* Fixed Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[rgba(10,10,10,0.8)] backdrop-blur-[10px] border-b border-white/10">
-        <nav className="flex items-center justify-between py-5 px-[60px] max-w-[1400px] mx-auto">
-          <AnimatedLogo />
-
-          <div className="hidden md:flex items-center gap-8">
-            <Link
-              href="/research"
-              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
-            >
-              Research
-            </Link>
-            <Link
-              href="/publications"
-              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
-            >
-              Publications
-            </Link>
-            <Link
-              href="/people"
-              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
-            >
-              People
-            </Link>
-            <Link
-              href="/dataset"
-              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
-            >
-              Datasets
-            </Link>
-            <Link
-              href="/contact"
-              className="text-[15px] transition-colors duration-200 text-[#0084ff]"
-            >
-              Contact
-            </Link>
-          </div>
-
-          <div className="hidden md:flex items-center gap-6">
-            <Link
-              href="/join"
-              className="flex items-center gap-2 bg-[#0084ff] text-white py-2.5 px-5 rounded-md text-[15px] font-medium hover:bg-[#0066cc] hover:translate-x-0.5 transition-all duration-200"
-            >
-              Join Us
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          {/* Mobile: Hamburger */}
-          <div className="md:hidden flex items-center gap-3">
-            <button
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              className="inline-flex items-center justify-center rounded-md p-2 text-white/80 hover:text-white hover:bg-white/5 transition"
-              onClick={() => setMobileOpen((v) => !v)}
-            >
-              {mobileOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
-        </nav>
-
-        {/* Mobile Panel */}
-        <div
-          className={`md:hidden absolute left-0 right-0 top-full border-b border-white/10 bg-[rgba(10,10,10,0.95)] backdrop-blur-md transition-all duration-300 ${
-            mobileOpen
-              ? "opacity-100 translate-y-0 pointer-events-auto"
-              : "opacity-0 -translate-y-2 pointer-events-none"
-          }`}
-        >
-          <div className="px-6 py-4 space-y-2">
-            <Link
-              href="/research"
-              className="block py-3 text-[16px] text-[#e6e6e6] hover:text-white transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              Research
-            </Link>
-            <Link
-              href="/publications"
-              className="block py-3 text-[16px] text-[#e6e6e6] hover:text-white transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              Publications
-            </Link>
-            <Link
-              href="/people"
-              className="block py-3 text-[16px] text-[#e6e6e6] hover:text-white transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              People
-            </Link>
-            <Link
-              href="/dataset"
-              className="block py-3 text-[16px] text-[#e6e6e6] hover:text-white transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              Datasets
-            </Link>
-            <Link
-              href="/contact"
-              className="block py-3 text-[16px] text-[#0084ff] transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              Contact
-            </Link>
-
-            <div className="h-px bg-white/10 my-2" />
-
-            <Link
-              href="/join"
-              className="w-full flex items-center justify-center gap-2 bg-[#0084ff] text-white py-3 rounded-md text-[15px] font-medium hover:bg-[#0066cc] transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              Join Us
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </header>
-
       {/* Hero Section */}
-      <section className="min-h-screen pt-[120px] pb-20 relative flex items-center justify-center text-center overflow-hidden">
+      <section className="min-h-screen pt-[100px] sm:pt-[120px] pb-20 relative flex items-center justify-center text-center overflow-hidden">
         {/* Enhanced animated background elements */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Floating geometric shapes */}
@@ -228,15 +90,15 @@ export default function ContactPage() {
           <div className="absolute bottom-1/6 right-1/6 w-96 h-96 bg-gradient-to-l from-[#0066cc]/3 to-transparent rounded-full blur-3xl animate-pulse opacity-40" style={{ animationDelay: '3s' }} />
         </div>
 
-        <div className="content-wrapper max-w-[1000px] mx-auto px-[60px] relative z-[2]">
+        <div className="content-wrapper max-w-[1000px] mx-auto px-4 sm:px-6 md:px-8 lg:px-15 xl:px-16 relative z-[2]">
           {/* Enhanced main title with advanced gradient and animations */}
           <div className="mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <h1 className="relative">
               {/* Multi-layer gradient text effect */}
-              <span className="block text-[120px] font-extralight leading-[0.9] tracking-[-4px] font-serif bg-gradient-to-r from-white via-[#0084ff] via-[#0066cc] to-white bg-clip-text text-transparent animate-gradient-x relative">
+              <span className="block text-[120px] font-extralight leading-[0.9] tracking-[-4px] font-sans bg-gradient-to-r from-white via-[#0084ff] via-[#0066cc] to-white bg-clip-text text-transparent animate-gradient-x relative">
                 Contact Us
                 {/* Text shadow effect */}
-                <span className="absolute inset-0 text-[120px] font-extralight leading-[0.9] tracking-[-4px] font-serif text-[#0084ff]/20 blur-sm animate-pulse">
+                <span className="absolute inset-0 text-[120px] font-extralight leading-[0.9] tracking-[-4px] font-sans text-[#0084ff]/20 blur-sm animate-pulse">
                   Contact Us
                 </span>
               </span>
@@ -254,13 +116,13 @@ export default function ContactPage() {
 
           {/* Enhanced subtitle with glow effects */}
           <div className="mb-4 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-            <h2 className="text-[32px] font-light leading-[1.1] tracking-[-1px] font-serif text-[#0084ff] relative">
+            <h2 className="text-[32px] font-light leading-[1.1] tracking-[-1px] font-sans text-[#0084ff] relative">
               Let's Start a Conversation
               {/* Enhanced glow effect */}
-              <div className="absolute inset-0 text-[32px] font-light leading-[1.1] tracking-[-1px] font-serif text-[#0084ff] blur-sm opacity-60 animate-pulse">
+              <div className="absolute inset-0 text-[32px] font-light leading-[1.1] tracking-[-1px] font-sans text-[#0084ff] blur-sm opacity-60 animate-pulse">
                 Let's Start a Conversation
               </div>
-              <div className="absolute inset-0 text-[32px] font-light leading-[1.1] tracking-[-1px] font-serif text-[#0066cc] blur-md opacity-30 animate-pulse" style={{ animationDelay: '1s' }}>
+              <div className="absolute inset-0 text-[32px] font-light leading-[1.1] tracking-[-1px] font-sans text-[#0066cc] blur-md opacity-30 animate-pulse" style={{ animationDelay: '1s' }}>
                 Let's Start a Conversation
               </div>
             </h2>
@@ -329,12 +191,12 @@ export default function ContactPage() {
 
       {/* Contact Section */}
       <section id="contact-form" className="pt-20 pb-20 relative z-10">
-        <div className="max-w-[1400px] mx-auto px-[60px]">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-15 xl:px-16">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Information */}
             <div>
               <div className="mb-12">
-                <h2 className="text-4xl font-light mb-6 tracking-[-1px] font-serif text-white">Get in Touch</h2>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-light mb-6 tracking-[-1px] font-sans text-white">Get in Touch</h2>
                 <p className="text-lg text-[#b8b8b8] leading-relaxed">
                   Whether you're interested in research collaborations, have questions about our work, or want to join our team, we're here to connect with you.
                 </p>
@@ -430,7 +292,7 @@ export default function ContactPage() {
 
             {/* Contact Form */}
             <div>
-              <h2 className="text-4xl font-light mb-8 tracking-[-1px] font-serif text-white">Send a Message</h2>
+              <h2 className="text-4xl font-light mb-8 tracking-[-1px] font-sans text-white">Send a Message</h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
@@ -542,7 +404,7 @@ export default function ContactPage() {
 
       {/* Footer */}
       <footer className="relative z-10 bg-[rgba(10,10,10,0.98)] backdrop-blur-sm border-t border-white/10 py-16">
-        <div className="max-w-[1400px] mx-auto px-[60px]">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-15 xl:px-16">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             {/* Brand Section */}
             <div className="md:col-span-1">

@@ -8,8 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-ibm-plex-sans)', 'system-ui', 'sans-serif'],
-        serif: ['var(--font-ibm-plex-serif)', 'serif'],
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
       },
     },
   },

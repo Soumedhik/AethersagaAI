@@ -130,7 +130,7 @@ export function AnimatedLogo() {
       {/* Enhanced text with animations */}
       <div className="flex flex-col">
         <div
-          className={`font-serif font-light text-xl tracking-wide transition-all duration-500 ${
+          className={`font-sans font-light text-xl tracking-wide transition-all duration-500 ${
             isHovered
               ? "text-[#0084ff]"
               : "text-white"

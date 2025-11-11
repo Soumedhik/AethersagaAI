@@ -15,7 +15,6 @@ import Link from "next/link";
 import { AnimatedLogo } from "@/components/animated-logo";
 
 export default function JoinPage() {
-  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     // Auto-scroll to contact section if hash is present
@@ -47,75 +46,11 @@ export default function JoinPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[rgba(10,10,10,0.8)] via-[rgba(10,10,10,0.9)] to-[rgba(10,10,10,0.95)]" />
       </div>
 
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[rgba(10,10,10,0.8)] backdrop-blur-[10px] border-b border-white/10">
-        <nav className="flex items-center justify-between py-5 px-[60px] max-w-[1400px] mx-auto">
-          <AnimatedLogo />
-
-          <div className="hidden md:flex items-center gap-8">
-            <Link
-              href="/research"
-              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
-            >
-              Research
-            </Link>
-            <Link
-              href="/publications"
-              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
-            >
-              Publications
-            </Link>
-            <Link
-              href="/people"
-              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
-            >
-              People
-            </Link>
-            <Link
-              href="/dataset"
-              className="text-[15px] transition-colors duration-200 text-[#b8b8b8] hover:text-white"
-            >
-              Datasets
-            </Link>
-            <Link
-              href="/join"
-              className="text-[15px] transition-colors duration-200 text-[#0084ff]"
-            >
-              Join
-            </Link>
-          </div>
-
-          <div className="hidden md:flex items-center gap-6">
-            <Link
-              href="/join#contact"
-              className="flex items-center gap-2 bg-[#0084ff] text-white py-2.5 px-5 rounded-md text-[15px] font-medium hover:bg-[#0066cc] hover:translate-x-0.5 transition-all duration-200"
-            >
-              Contact Us
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="md:hidden flex items-center gap-3">
-            <button
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              className="inline-flex items-center justify-center rounded-md p-2 text-white/80 hover:text-white hover:bg-white/5 transition"
-              onClick={() => setMobileOpen((v) => !v)}
-            >
-              {mobileOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
-        </nav>
-      </header>
-
       {/* Join Content */}
-      <main className="pt-[120px] pb-20 relative z-10">
-        <div className="max-w-[1400px] mx-auto px-[60px]">
+      <main className="pt-[100px] sm:pt-[120px] pb-20 relative z-10">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-15 xl:px-16">
           <div className="text-center mb-16">
-            <h1 className="text-6xl font-light mb-6 tracking-[-1px] font-serif">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-6 tracking-[-1px] font-sans">
               Join Aethersaga AI
             </h1>
             <p className="text-xl text-[#b8b8b8] max-w-3xl mx-auto leading-relaxed">
@@ -126,7 +61,7 @@ export default function JoinPage() {
 
           {/* Application Process */}
           <div className="mb-20">
-            <h2 className="text-4xl font-light mb-12 text-center tracking-[-1px]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-light mb-12 text-center tracking-[-1px]">
               Application Process
             </h2>
             <div className="grid md:grid-cols-4 gap-8">
@@ -251,7 +186,7 @@ export default function JoinPage() {
 
       {/* Footer */}
       <footer className="relative z-10 bg-[rgba(10,10,10,0.98)] border-t border-white/10 py-16">
-        <div className="max-w-[1400px] mx-auto px-[60px]">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-15 xl:px-16">
           <div className="grid md:grid-cols-4 gap-12">
             {/* Brand Section */}
             <div className="md:col-span-1">
